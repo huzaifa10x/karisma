@@ -1,49 +1,90 @@
 <script lang="ts">
-  import { Phone } from "lucide-svelte";
+  import {
+    Phone,
+    ChevronDown,
+    ChevronRight,
+    Menu,
+    X
+  } from "lucide-svelte";
   import { slide, fade } from "svelte/transition";
 
   let departmentsOpen = false;
   let mobileMenuOpen = false;
   let mobileDepartmentsOpen = false;
+  let activeMobileSubmenu: string | null = null;
 
   const departments = [
-    { label: "Cardiology", href: "/departments/cardiology" },
-    { label: "Dermatology", href: "/departments/dermatology" },
-    { label: "Pediatrics", href: "/departments/pediatrics" },
+    {
+      label: "Cardiology",
+      href: "/departments/cardiology",
+      children: [
+        { label: "Heart Checkup", href: "/departments/cardiology/checkup" },
+        { label: "ECG", href: "/departments/cardiology/ecg" }
+      ]
+    },
+    {
+      label: "Dermatology",
+      href: "/departments/dermatology",
+      children: [
+        { label: "Skin Care", href: "/departments/dermatology/skincare" },
+        { label: "Laser Treatment", href: "/departments/dermatology/laser" }
+      ]
+    },
+    {
+      label: "Pediatrics",
+      href: "/departments/pediatrics",
+      children: [
+        { label: "Child Checkup", href: "/departments/pediatrics/checkup" },
+        { label: "Vaccination", href: "/departments/pediatrics/vaccine" }
+      ]
+    }
   ];
 
   const navLinks = [
     { label: "ABOUT US", href: "/about" },
     { label: "OUR DOCTORS", href: "/doctors" },
     { label: "CAREERS", href: "/careers" },
-    { label: "CONTACT US", href: "/contact" },
+    { label: "CONTACT US", href: "/contact" }
   ];
 
   function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
-    if (!mobileMenuOpen) mobileDepartmentsOpen = false;
+
+    if (!mobileMenuOpen) {
+      mobileDepartmentsOpen = false;
+      activeMobileSubmenu = null;
+    }
+  }
+
+  function toggleSubmenu(label: string) {
+    activeMobileSubmenu =
+      activeMobileSubmenu === label ? null : label;
   }
 </script>
 
-<nav class="fixed top-0 left-0 z-50 w-full border-b border-black/30 py-2">
+<nav class="absolute top-0 left-0 z-50 w-full border-b border-black/30 py-2">
   <div
-    class="mx-auto flex h-20 lg:h-24 max-w-[1500px] items-center justify-between px-6 lg:px-10"
+    class="mx-auto flex h-20 max-w-[1500px] items-center justify-between px-6 lg:h-24 lg:px-10"
   >
     <!-- Logo -->
-    <a href="/" class="flex flex-col leading-none z-50">
-      <img src="/images/logo_main.png" class="w-32 lg:w-[150px]" alt="Logo" />
+    <a href="/" class="z-50">
+      <img
+        src="/images/logo_main.png"
+        class="w-32 lg:w-[150px]"
+        alt="Logo"
+      />
     </a>
 
-    <!-- Desktop Navigation (lg and up) -->
+    <!-- Desktop Nav -->
     <div class="hidden items-center gap-10 lg:flex">
       <a
         href="/about"
-        class="text-sm font-semibold text-white hover:text-[#c9a45c] transition-colors"
+        class="text-sm font-semibold text-white hover:text-[#c9a45c]"
       >
         ABOUT US
       </a>
 
-      <!-- Departments Dropdown -->
+      <!-- Desktop Departments -->
       <div
         class="relative"
         on:mouseenter={() => (departmentsOpen = true)}
@@ -53,25 +94,43 @@
           class="flex items-center gap-2 text-sm font-semibold text-white hover:text-[#c9a45c]"
         >
           DEPARTMENTS
-          <span
-            class="text-[10px] transition-transform {departmentsOpen
-              ? 'rotate-180'
-              : ''}">▼</span
-          >
+          <ChevronDown
+            size={16}
+            class={`transition-transform ${
+              departmentsOpen ? "rotate-180" : ""
+            }`}
+          />
         </button>
 
         {#if departmentsOpen}
           <div
-            transition:fade={{ duration: 150 }}
-            class="absolute left-0 top-full mt-3 w-56 rounded-2xl border border-white/10 bg-black/80 p-3 shadow-2xl backdrop-blur-xl"
+            transition:fade
+            class="absolute left-0 top-full mt-3 w-72 rounded-2xl border border-white/10 bg-black/90 p-3 shadow-2xl"
           >
             {#each departments as dept}
-              <a
-                href={dept.href}
-                class="block rounded-xl px-4 py-3 text-sm text-white hover:bg-white/10 hover:text-[#c9a45c]"
-              >
-                {dept.label}
-              </a>
+              <div class="group relative">
+                <a
+                  href={dept.href}
+                  class="flex items-center justify-between rounded-xl px-4 py-3 text-white hover:bg-white/10"
+                >
+                  {dept.label}
+                  <ChevronRight size={14} />
+                </a>
+
+                <!-- Submenu -->
+                <div
+                  class="invisible absolute left-full top-0 ml-2 w-56 rounded-2xl border border-white/10 bg-black/95 p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100"
+                >
+                  {#each dept.children as child}
+                    <a
+                      href={child.href}
+                      class="block rounded-lg px-4 py-2 text-white hover:bg-white/10"
+                    >
+                      {child.label}
+                    </a>
+                  {/each}
+                </div>
+              </div>
             {/each}
           </div>
         {/if}
@@ -80,170 +139,136 @@
       {#each navLinks.slice(1) as item}
         <a
           href={item.href}
-          class="text-sm font-semibold text-white hover:text-[#c9a45c] transition-colors"
+          class="text-sm font-semibold text-white hover:text-[#c9a45c]"
         >
           {item.label}
         </a>
       {/each}
     </div>
 
-    <!-- Right Side (Desktop) -->
+    <!-- Desktop Right -->
     <div class="hidden items-center gap-6 lg:flex">
       <a
         href="tel:+97165068777"
         class="text-sm font-semibold text-white hover:text-[#c9a45c]"
       >
-        <Phone class="inline"/> +971 6 506 8777
+        <Phone class="inline" />
+        +971 6 506 8777
       </a>
-
-      <!-- UAE Flag -->
-      <div
-        class="flex h-8 w-8 overflow-hidden rounded-full border border-white/20"
-      >
-        <div class="w-1/4 bg-red-600"></div>
-        <div class="w-3/4">
-          <div class="h-1/3 bg-green-500"></div>
-          <div class="h-1/3 bg-white"></div>
-          <div class="h-1/3 bg-black"></div>
-        </div>
-      </div>
     </div>
 
-    <!-- Mobile Menu Toggle Button -->
+    <!-- Mobile Toggle -->
     <button
       on:click={toggleMobileMenu}
-      class="relative z-50 rounded-xl border border-white/20 bg-white/10 p-2 text-white lg:hidden"
-      aria-label="Toggle Menu"
+      class="z-50 rounded-xl border border-white/20 bg-white/10 p-2 text-white lg:hidden"
     >
-      {#if !mobileMenuOpen}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
-        </svg>
+      {#if mobileMenuOpen}
+        <X size={24} />
       {:else}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+        <Menu size={24} />
       {/if}
     </button>
   </div>
 
-  <!-- Mobile Sidebar Menu -->
+  <!-- Mobile Sidebar -->
   {#if mobileMenuOpen}
     <!-- Overlay -->
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div
-      transition:fade
-      class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+    <button
+      class="fixed inset-0 z-40 bg-black/60 lg:hidden"
       on:click={toggleMobileMenu}
-    ></div>
+      aria-label="Close menu"
+    ></button>
 
-    <!-- Menu Panel -->
+    <!-- Sidebar -->
     <div
-      transition:slide={{ axis: "x" }}
-      class="fixed right-0 top-0 z-40 h-screen w-[280px] bg-[#1a1a1a] p-6 pt-24 shadow-2xl lg:hidden"
+      transition:slide={{ axis: "x", duration: 300 }}
+      class="fixed right-0 top-0 z-50 h-screen w-[300px] bg-[#111] p-6 pt-24 shadow-2xl lg:hidden"
     >
       <div class="flex flex-col gap-4">
         <a
-          on:click={toggleMobileMenu}
           href="/about"
-          class="text-lg font-medium text-white border-b border-white/5 pb-2"
+          class="border-b border-white/10 pb-3 text-lg text-white"
+          on:click={toggleMobileMenu}
         >
           ABOUT US
         </a>
 
-        <!-- Mobile Departments Accordion -->
-        <div class="flex flex-col border-b border-white/5 pb-2">
+        <!-- Mobile Departments -->
+        <div class="border-b border-white/10 pb-3">
           <button
-            on:click={() => (mobileDepartmentsOpen = !mobileDepartmentsOpen)}
-            class="flex items-center justify-between text-lg font-medium text-white"
+            on:click={() =>
+              (mobileDepartmentsOpen = !mobileDepartmentsOpen)}
+            class="flex w-full items-center justify-between text-lg text-white"
           >
             DEPARTMENTS
-            <span
-              class="transition-transform {mobileDepartmentsOpen
-                ? 'rotate-180'
-                : ''}">▼</span
-            >
+            <ChevronDown
+              class={`transition-transform ${
+                mobileDepartmentsOpen ? "rotate-180" : ""
+              }`}
+            />
           </button>
 
           {#if mobileDepartmentsOpen}
-            <div transition:slide class="mt-2 flex flex-col gap-2 pl-4">
+            <div transition:slide class="mt-3 space-y-3">
               {#each departments as dept}
-                <a
-                  on:click={toggleMobileMenu}
-                  href={dept.href}
-                  class="text-white/70 hover:text-[#c9a45c] py-1"
-                >
-                  {dept.label}
-                </a>
+                <div>
+                  <button
+                    on:click={() => toggleSubmenu(dept.label)}
+                    class="flex w-full items-center justify-between py-2 text-white/80"
+                  >
+                    {dept.label}
+                    <ChevronDown
+                      size={14}
+                      class={`transition-transform ${
+                        activeMobileSubmenu === dept.label
+                          ? "rotate-180"
+                          : ""
+                      }`}
+                    />
+                  </button>
+
+                  {#if activeMobileSubmenu === dept.label}
+                    <div
+                      transition:slide
+                      class="ml-4 mt-2 flex flex-col gap-2"
+                    >
+                      {#each dept.children as child}
+                        <a
+                          href={child.href}
+                          on:click={toggleMobileMenu}
+                          class="text-sm text-white/60 hover:text-[#c9a45c]"
+                        >
+                          {child.label}
+                        </a>
+                      {/each}
+                    </div>
+                  {/if}
+                </div>
               {/each}
             </div>
           {/if}
         </div>
 
+        <!-- Other Links -->
         {#each navLinks.slice(1) as item}
           <a
-            on:click={toggleMobileMenu}
             href={item.href}
-            class="text-lg font-medium text-white border-b border-white/5 pb-2"
+            class="border-b border-white/10 pb-3 text-lg text-white"
+            on:click={toggleMobileMenu}
           >
             {item.label}
           </a>
         {/each}
 
-        <!-- Bottom Mobile Info -->
-        <div class="mt-auto flex flex-col gap-6 pt-10">
+        <!-- Bottom -->
+        <div class="mt-8">
           <a
             href="tel:+97165068777"
-            class="flex items-center gap-3 text-[#c9a45c] font-semibold"
+            class="flex items-center gap-3 font-semibold text-[#c9a45c]"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.405 5.405l.773-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
-              />
-            </svg>
+            <Phone size={18} />
             +971 6 506 8777
           </a>
-
-          <div class="flex items-center gap-3 text-white/50 text-sm">
-            <div
-              class="flex h-6 w-6 overflow-hidden rounded-full border border-white/20"
-            >
-              <div class="w-1/4 bg-red-600"></div>
-              <div class="w-3/4">
-                <div class="h-1/3 bg-green-500"></div>
-                <div class="h-1/3 bg-white"></div>
-                <div class="h-1/3 bg-black"></div>
-              </div>
-            </div>
-            UAE - Sharjah
-          </div>
         </div>
       </div>
     </div>
