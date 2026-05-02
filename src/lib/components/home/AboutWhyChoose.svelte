@@ -5,11 +5,11 @@
 
 <section class="py-10 bg-primary">
   <div class="grid md:grid-cols-2 mx-auto max-w-7xl gap-20 px-10">
-    <div class="flex gap-5">
+    <div class="flex justify-center gap-5">
       {#each items.banners
         .filter((item) => item.title === "About us content" || "About us")
         .slice(0, 2) as imgs}
-        <div class="max-w-[330px] w-full h-[370px] overflow-hidden first:mt-15">
+        <div class="max-w-[330px] w-full h-[370px] overflow-hidden first:mt-15 max-sm:first:hidden">
           <img
             src={imgs.desktop_image}
             alt={imgs.title}
@@ -24,7 +24,7 @@
         <div class="text-secondary text-4xl font-seasons">About Us</div>
         <div class="text-c5 text-lg">{content.description}</div>
       {/each}
-      <div class="flex justify-end">
+      <div class="lg:flex justify-end">
         <Button text="Read more" />
       </div>
     </div>

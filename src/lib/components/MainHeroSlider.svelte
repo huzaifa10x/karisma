@@ -33,21 +33,23 @@
   opts={{ loop: true }}
   class="relative w-full mx-auto"
 >
-  {#if loading}
-  <div class="w-full fixed flex items-center justify-center h-screen bg-secondary z-50">
-    <!-- <div class="rounded-full w-[50px] h-[50px] border-yellow-600 border-2 animate-spin border-r-0"></div> -->
-     <img class="w-[200px] animate-pulse" src="/images/logo_main.png" alt="">
-  </div>
-  {/if}
-
   <CarouselContent>
+    {#if loading}
+      <div
+        class="w-full flex items-center justify-center md:h-screen h-[400px] bg-primary"
+      >
+        <div
+          class="rounded-full w-[50px] h-[50px] border-secondary-foreground border-2 animate-spin border-r-0"
+        ></div>
+      </div>
+    {/if}
     {#if data?.banners}
       {#each data.banners.filter((item) => item.title === "Home Slider") as slider, i}
         <CarouselItem>
           <img
             src={slider.desktop_image}
             alt="Slide {i}"
-            class="object-cover h-screen w-full brightness-50"
+            class="object-cover md:h-screen h-[400px] w-full brightness-50"
           />
         </CarouselItem>
       {/each}

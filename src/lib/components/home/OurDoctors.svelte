@@ -30,14 +30,20 @@
         {#each items.doctors.slice(1, items.length) as doctor}
           <CarouselItem class="md:basis-1/2 lg:basis-1/3">
             <a href={doctor.link}>
-              <div class="bg-white group rounded-2xl p-10 space-y-5 rounded-br-none">
+              <div
+                class="bg-white group rounded-2xl p-10 space-y-5 rounded-br-none"
+              >
                 <div class="text-secondary text-2xl capitalize">
                   {doctor.canonical_name}
                 </div>
                 <div class="border-b w-full"></div>
                 <div class="text-c5 text-lg">{doctor.designation}</div>
-                       <div class="relative overflow-hidden rounded-2xl rounded-br-none">
-                <div class="w-full h-full scale-0 group-hover:scale-100 duration-500 bg-secondary-foreground/50 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <div
+                  class="relative overflow-hidden rounded-2xl rounded-br-none"
+                >
+                  <div
+                    class="w-full h-full scale-0 group-hover:scale-100 duration-500 bg-secondary-foreground/50 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                  ></div>
                   <img
                     class="w-full object-cover rounded-2xl rounded-br-none"
                     src={doctor.image}
@@ -50,8 +56,8 @@
           </CarouselItem>
         {/each}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious class='left-2'/>
+      <CarouselNext class='right-2'/>
     </Carousel>
   </div>
 </section>

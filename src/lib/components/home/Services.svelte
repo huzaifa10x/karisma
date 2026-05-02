@@ -63,8 +63,8 @@
           </CarouselItem>
         {/each}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious class='left-2'/>
+      <CarouselNext class='right-2'/>
     </Carousel>
   </div>
 </section>
