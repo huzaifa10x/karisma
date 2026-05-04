@@ -1,17 +1,11 @@
 <script lang="ts">
-  import {
-    Phone,
-    ChevronDown,
-    ChevronRight,
-    Menu,
-    X
-  } from "lucide-svelte";
+  import { Phone, ChevronDown, ChevronRight, Menu, X } from "lucide-svelte";
   import { slide, fade } from "svelte/transition";
 
-  let departmentsOpen = false;
-  let mobileMenuOpen = false;
-  let mobileDepartmentsOpen = false;
-  let activeMobileSubmenu: string | null = null;
+  let departmentsOpen = $state(false);
+  let mobileMenuOpen = $state(false);
+  let mobileDepartmentsOpen = $state(false);
+  let activeMobileSubmenu = $state<string | null>(null);
 
   const departments = [
     {
@@ -19,32 +13,32 @@
       href: "/departments/cardiology",
       children: [
         { label: "Heart Checkup", href: "/departments/cardiology/checkup" },
-        { label: "ECG", href: "/departments/cardiology/ecg" }
-      ]
+        { label: "ECG", href: "/departments/cardiology/ecg" },
+      ],
     },
     {
       label: "Dermatology",
       href: "/departments/dermatology",
       children: [
         { label: "Skin Care", href: "/departments/dermatology/skincare" },
-        { label: "Laser Treatment", href: "/departments/dermatology/laser" }
-      ]
+        { label: "Laser Treatment", href: "/departments/dermatology/laser" },
+      ],
     },
     {
       label: "Pediatrics",
       href: "/departments/pediatrics",
       children: [
         { label: "Child Checkup", href: "/departments/pediatrics/checkup" },
-        { label: "Vaccination", href: "/departments/pediatrics/vaccine" }
-      ]
-    }
+        { label: "Vaccination", href: "/departments/pediatrics/vaccine" },
+      ],
+    },
   ];
 
   const navLinks = [
     { label: "ABOUT US", href: "/about" },
     { label: "OUR DOCTORS", href: "/doctors" },
     { label: "CAREERS", href: "/careers" },
-    { label: "CONTACT US", href: "/contact" }
+    { label: "CONTACT US", href: "/contact" },
   ];
 
   function toggleMobileMenu() {
@@ -57,22 +51,17 @@
   }
 
   function toggleSubmenu(label: string) {
-    activeMobileSubmenu =
-      activeMobileSubmenu === label ? null : label;
+    activeMobileSubmenu = activeMobileSubmenu === label ? null : label;
   }
 </script>
 
 <nav class="absolute top-0 left-0 z-50 w-full border-b border-black/30 py-2">
   <div
-    class="mx-auto flex h-20 max-w-[1500px] items-center justify-between px-6 lg:h-24 lg:px-10"
+    class="mx-auto flex h-20 max-w-375 items-center justify-between px-6 lg:h-24 lg:px-10"
   >
     <!-- Logo -->
     <a href="/" class="z-50">
-      <img
-        src="/images/logo_main.png"
-        class="w-32 lg:w-[150px]"
-        alt="Logo"
-      />
+      <img src="/images/logo_main.png" class="w-32 lg:w-37.5" alt="Logo" />
     </a>
 
     <!-- Desktop Nav -->
@@ -87,8 +76,10 @@
       <!-- Desktop Departments -->
       <div
         class="relative"
-        on:mouseenter={() => (departmentsOpen = true)}
-        on:mouseleave={() => (departmentsOpen = false)}
+        role="menu"
+        tabindex="0"
+        onmouseenter={() => (departmentsOpen = true)}
+        onmouseleave={() => (departmentsOpen = false)}
       >
         <button
           class="flex items-center gap-2 text-sm font-semibold text-white hover:text-[#c9a45c]"
@@ -159,7 +150,7 @@
 
     <!-- Mobile Toggle -->
     <button
-      on:click={toggleMobileMenu}
+      onclick={toggleMobileMenu}
       class="z-50 rounded-xl border border-white/20 bg-white/10 p-2 text-white lg:hidden"
     >
       {#if mobileMenuOpen}
@@ -175,20 +166,20 @@
     <!-- Overlay -->
     <button
       class="fixed inset-0 z-40 bg-black/60 lg:hidden"
-      on:click={toggleMobileMenu}
+      onclick={toggleMobileMenu}
       aria-label="Close menu"
     ></button>
 
     <!-- Sidebar -->
     <div
       transition:slide={{ axis: "x", duration: 300 }}
-      class="fixed right-0 top-0 z-50 h-screen w-[300px] bg-[#111] p-6 pt-24 shadow-2xl lg:hidden"
+      class="fixed right-0 top-0 z-50 h-screen w-75 bg-[#111] p-6 pt-24 shadow-2xl lg:hidden"
     >
       <div class="flex flex-col gap-4">
         <a
           href="/about"
           class="border-b border-white/10 pb-3 text-lg text-white"
-          on:click={toggleMobileMenu}
+          onclick={toggleMobileMenu}
         >
           ABOUT US
         </a>
@@ -196,8 +187,7 @@
         <!-- Mobile Departments -->
         <div class="border-b border-white/10 pb-3">
           <button
-            on:click={() =>
-              (mobileDepartmentsOpen = !mobileDepartmentsOpen)}
+            onclick={() => (mobileDepartmentsOpen = !mobileDepartmentsOpen)}
             class="flex w-full items-center justify-between text-lg text-white"
           >
             DEPARTMENTS
@@ -213,29 +203,24 @@
               {#each departments as dept}
                 <div>
                   <button
-                    on:click={() => toggleSubmenu(dept.label)}
+                    onclick={() => toggleSubmenu(dept.label)}
                     class="flex w-full items-center justify-between py-2 text-white/80"
                   >
                     {dept.label}
                     <ChevronDown
                       size={14}
                       class={`transition-transform ${
-                        activeMobileSubmenu === dept.label
-                          ? "rotate-180"
-                          : ""
+                        activeMobileSubmenu === dept.label ? "rotate-180" : ""
                       }`}
                     />
                   </button>
 
                   {#if activeMobileSubmenu === dept.label}
-                    <div
-                      transition:slide
-                      class="ml-4 mt-2 flex flex-col gap-2"
-                    >
+                    <div transition:slide class="ml-4 mt-2 flex flex-col gap-2">
                       {#each dept.children as child}
                         <a
                           href={child.href}
-                          on:click={toggleMobileMenu}
+                          onclick={toggleMobileMenu}
                           class="text-sm text-white/60 hover:text-[#c9a45c]"
                         >
                           {child.label}
@@ -254,7 +239,7 @@
           <a
             href={item.href}
             class="border-b border-white/10 pb-3 text-lg text-white"
-            on:click={toggleMobileMenu}
+            onclick={toggleMobileMenu}
           >
             {item.label}
           </a>
