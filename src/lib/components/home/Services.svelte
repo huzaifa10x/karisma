@@ -6,8 +6,6 @@
   import CarouselPrevious from "../ui/carousel/carousel-previous.svelte";
   import Carousel from "../ui/carousel/carousel.svelte";
   let { items } = $props();
-
-  console.log(items.data);
 </script>
 
 <section class="py-10 bg-primary">

@@ -6,9 +6,6 @@
   import OurDoctors from "$lib/components/home/OurDoctors.svelte";
   import Services from "$lib/components/home/Services.svelte";
   let { data } = $props();
-
-  //   console.log("Page Data:", data);
-  //   console.log("Homepage:", data.homepage);
 </script>
 
 <Navbar />
