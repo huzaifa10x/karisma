@@ -23,7 +23,7 @@
     fetchData();
   });
 
-  $inspect(data)
+  $inspect(data);
 
   let departmentsOpen = $state(false);
   let mobileMenuOpen = $state(false);
@@ -221,7 +221,11 @@
                   </button>
 
                   {#if activeMobileSubmenu === dept.index}
-                    <div transition:slide id={index} class="ml-4 mt-2 flex flex-col gap-2">
+                    <div
+                      transition:slide
+                      id={index}
+                      class="ml-4 mt-2 flex flex-col gap-2"
+                    >
                       {#each dept.listItems as child, index}
                         <a
                           href={child.link}

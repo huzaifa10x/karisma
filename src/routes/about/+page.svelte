@@ -5,5 +5,5 @@
   let { data } = $props();
 </script>
 
-<!-- <Navbar items={data.departments} /> -->
+<Navbar />
 <GlobalBanner items={data.aboutPage} />
