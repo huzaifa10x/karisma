@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Phone, ChevronDown, ChevronRight, Menu, X } from "lucide-svelte";
   import { slide, fade } from "svelte/transition";
-  
-  let data = $state(null);
+
+  let data = $state("");
   let loading = $state(true);
   let error = $state(null);
 
@@ -10,7 +10,7 @@
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://admin.karismamc.com/api/homepage",
+          "https://admin.karismamc.com/api/departments",
         );
         if (!response.ok) throw new Error("Network response was not ok");
         data = await response.json();
@@ -23,7 +23,7 @@
     fetchData();
   });
 
-  $inspect(data);
+  $inspect(data)
 
   let departmentsOpen = $state(false);
   let mobileMenuOpen = $state(false);
@@ -94,7 +94,7 @@
             transition:fade
             class="absolute left-0 top-3 mt-3 w-72 rounded-bl-2xl border border-white/10 bg-white p-3 shadow-2xl"
           >
-            {#each data.data.departmentPage.slice(1, data.data.departmentPage.length) as dept}
+            {#each data.departmentPage.slice(1, data.departmentPage.length) as dept}
               <div class="group relative">
                 <a
                   href={dept.href}
@@ -205,7 +205,7 @@
 
           {#if mobileDepartmentsOpen}
             <div transition:slide class="mt-3 space-y-3">
-              {#each data.data.departmentPage.slice(1, data.data.departmentPage.length) as dept}
+              {#each data.departmentPage.slice(1, data.departmentPage.length) as dept, index}
                 <div>
                   <button
                     onclick={() => toggleSubmenu(dept.label)}
@@ -215,16 +215,17 @@
                     <ChevronDown
                       size={14}
                       class={`transition-transform ${
-                        activeMobileSubmenu === dept.label ? "rotate-180" : ""
+                        activeMobileSubmenu === dept.index ? "rotate-180" : ""
                       }`}
                     />
                   </button>
 
-                  {#if activeMobileSubmenu === dept.label}
-                    <div transition:slide class="ml-4 mt-2 flex flex-col gap-2">
-                      {#each dept.listItems as child}
+                  {#if activeMobileSubmenu === dept.index}
+                    <div transition:slide id={index} class="ml-4 mt-2 flex flex-col gap-2">
+                      {#each dept.listItems as child, index}
                         <a
                           href={child.link}
+                          id={index}
                           onclick={toggleMobileMenu}
                           class="text-sm text-white/60 hover:text-[#c9a45c]"
                         >
