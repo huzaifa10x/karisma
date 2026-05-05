@@ -19,7 +19,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: rgb(217, 197, 173);
+  --primary: #d9c5ad;
   --primary-foreground: #aa9380;
   --secondary: #577056;
   --secondary-foreground: #405d53;
@@ -134,6 +134,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    min-width: 360px;
   }
   body::-webkit-scrollbar {
     background-color: rgb(217, 197, 173);
