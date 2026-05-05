@@ -49,7 +49,11 @@
                   ></div>
                   <img
                     class="w-full h-56 object-cover rounded-2xl rounded-br-none"
-                    src={service.service_image}
+                    src={service.service_image ||
+                      "/images/image-placeholder.png"}
+                    onerror={(e) => {
+                      e.currentTarget.src = "/images/image-placeholder.png";
+                    }}
                     alt=""
                   />
                 </div>
@@ -61,8 +65,8 @@
           </CarouselItem>
         {/each}
       </CarouselContent>
-      <CarouselPrevious class='left-2'/>
-      <CarouselNext class='right-2'/>
+      <CarouselPrevious class="left-2" />
+      <CarouselNext class="right-2" />
     </Carousel>
   </div>
 </section>

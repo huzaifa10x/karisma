@@ -23,8 +23,6 @@
     fetchData();
   });
 
-  $inspect(data);
-
   let departmentsOpen = $state(false);
   let mobileMenuOpen = $state(false);
   let mobileDepartmentsOpen = $state(false);

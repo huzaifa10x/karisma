@@ -46,7 +46,10 @@
                   ></div>
                   <img
                     class="w-full object-cover rounded-2xl rounded-br-none"
-                    src={doctor.image}
+                    src={doctor.image || "/images/image-placeholder.png"}
+                    onerror={(e) => {
+                      e.currentTarget.src = "/images/image-placeholder.png";
+                    }}
                     alt=""
                   />
                 </div>
@@ -56,8 +59,8 @@
           </CarouselItem>
         {/each}
       </CarouselContent>
-      <CarouselPrevious class='left-2'/>
-      <CarouselNext class='right-2'/>
+      <CarouselPrevious class="left-2" />
+      <CarouselNext class="right-2" />
     </Carousel>
   </div>
 </section>

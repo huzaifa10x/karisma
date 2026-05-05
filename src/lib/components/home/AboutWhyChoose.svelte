@@ -9,11 +9,16 @@
       {#each items.banners
         .filter((item) => item.title === "About us content" || "About us")
         .slice(0, 2) as imgs}
-        <div class="max-w-[330px] w-full h-[370px] overflow-hidden first:mt-15 max-sm:first:hidden">
+        <div
+          class="max-w-[330px] w-full h-[370px] overflow-hidden first:mt-15 max-sm:first:hidden"
+        >
           <img
-            src={imgs.desktop_image}
+            src={imgs.desktop_image || "/images/image-placeholder.png"}
             alt={imgs.title}
             class="w-full h-full object-cover rounded-br-none rounded-2xl"
+            onerror={(e) => {
+              e.currentTarget.src = "/images/image-placeholder.png";
+            }}
           />
         </div>
       {/each}
@@ -46,6 +51,9 @@
           <img
             src={imgs.desktop_image}
             alt={imgs.title}
+            onerror={(e) => {
+              e.currentTarget.src = "/images/image-placeholder.png";
+            }}
             class="w-80 block mx-auto rounded-br-none rounded-2xl image-spin"
           />
         </div>

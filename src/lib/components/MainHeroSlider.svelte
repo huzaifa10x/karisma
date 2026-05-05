@@ -47,9 +47,12 @@
       {#each data.banners.filter((item) => item.title === "Home Slider") as slider, i}
         <CarouselItem>
           <img
-            src={slider.desktop_image}
-            alt="Slide {i}"
-            class="object-cover md:h-screen h-[400px] w-full brightness-50"
+            src={slider.desktop_image || "/images/image-placeholder.png"}
+            alt={`Slide ${i}`}
+            class="h-[400px] w-full object-cover brightness-50 md:h-screen"
+            onerror={(e) => {
+              e.currentTarget.src = "/images/image-placeholder.png";
+            }}
           />
         </CarouselItem>
       {/each}
