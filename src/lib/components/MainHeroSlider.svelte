@@ -6,9 +6,9 @@
   import CarouselPrevious from "./ui/carousel/carousel-previous.svelte";
   import CarouselNext from "./ui/carousel/carousel-next.svelte";
 
-  let data = $state(null);
+  let data = $state<any>(null);
   let loading = $state(true);
-  let error = $state(null);
+  let error = $state<string | null>(null);
 
   $effect(() => {
     const fetchData = async () => {
@@ -19,7 +19,7 @@
         if (!response.ok) throw new Error("Network response was not ok");
         data = await response.json();
       } catch (err) {
-        error = err.message;
+        error = (err as Error).message;
       } finally {
         loading = false;
       }
@@ -36,22 +36,23 @@
   <CarouselContent>
     {#if loading}
       <div
-        class="w-full flex items-center justify-center md:h-screen h-[400px] bg-primary"
+        class="w-full flex items-center justify-center md:h-screen h-100 bg-primary"
       >
         <div
-          class="rounded-full w-[50px] h-[50px] border-secondary-foreground border-2 animate-spin border-r-0"
+          class="rounded-full w-12.5 h-12.5 border-secondary-foreground border-2 animate-spin border-r-0"
         ></div>
       </div>
     {/if}
     {#if data?.banners}
-      {#each data.banners.filter((item) => item.title === "Home Slider") as slider, i}
+      {#each data.banners.filter((item: any) => item.title === "Home Slider") as slider, i}
         <CarouselItem>
           <img
             src={slider.desktop_image || "/images/image-placeholder.png"}
             alt={`Slide ${i}`}
-            class="h-[400px] w-full object-cover brightness-50 md:h-screen"
+            class="h-100 w-full object-cover brightness-50 md:h-screen"
             onerror={(e) => {
-              e.currentTarget.src = "/images/image-placeholder.png";
+              (e.currentTarget as HTMLImageElement).src =
+                "/images/image-placeholder.png";
             }}
           />
         </CarouselItem>

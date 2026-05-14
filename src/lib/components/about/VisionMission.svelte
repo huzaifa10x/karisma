@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   let data = $props();
 </script>
 
@@ -12,7 +12,8 @@
             "/images/image-placeholder.png"}
           alt=""
           onerror={(e) => {
-            e.currentTarget.src = "/images/image-placeholder.png";
+            (e.currentTarget as HTMLImageElement).src =
+              "/images/image-placeholder.png";
           }}
         />
       </div>
@@ -20,7 +21,7 @@
         <div class="text-secondary font-medium text-3xl">
           {data.items.data.section1.title}
         </div>
-        <p class="text-c5 lg:text-xl lg:leading-9 leading-7 max-w-[1500px]">
+        <p class="text-c5 lg:text-xl lg:leading-9 leading-7 max-w-375">
           {@html data.items.data.section1.description}
         </p>
       </div>
@@ -32,7 +33,7 @@
         <div class="text-secondary font-medium text-3xl">
           {data.items.data.section2.title}
         </div>
-        <p class="text-c5 lg:text-xl lg:leading-9 leading-7 max-w-[1500px]">
+        <p class="text-c5 lg:text-xl lg:leading-9 leading-7 max-w-375">
           {@html data.items.data.section2.description}
         </p>
       </div>
@@ -42,7 +43,8 @@
           src={data.items.data.story_image || "/images/image-placeholder.png"}
           alt=""
           onerror={(e) => {
-            e.currentTarget.src = "/images/image-placeholder.png";
+            (e.currentTarget as HTMLImageElement).src =
+              "/images/image-placeholder.png";
           }}
         />
       </div>

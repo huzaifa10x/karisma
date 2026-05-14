@@ -1,9 +1,12 @@
 <script lang="ts">
-  import Footer from '$lib/components/footer.svelte';
-	import './layout.css';
+  import Floatingsidebar from "$lib/components/Floatingsidebar.svelte";
+  import Footer from "$lib/components/footer.svelte";
+  import "./layout.css";
 
-	const { children } = $props();
+  const { children } = $props();
 </script>
 
 {@render children()}
-<Footer/>
+<Floatingsidebar />
+
+<Footer />

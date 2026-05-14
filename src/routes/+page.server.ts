@@ -1,8 +1,10 @@
-export async function load({ fetch }) {
+import type { PageServerLoad } from "./$types.js";
+
+export const load: PageServerLoad = async ({ fetch }: Parameters<PageServerLoad>[0]) => {
     const [homeRes, doctorRes, serviceRes, departmentsRes] = await Promise.all([
         fetch("https://admin.karismamc.com/api/homepage"),
         fetch("https://admin.karismamc.com/api/doctors"),
-        fetch("https://admin.karismamc.com/api/servicepage"),
+        fetch("https://admin.karismamc.com/api/homepage?banner_type=department"),
         fetch("https://admin.karismamc.com/api/departments"),
     ]);
 

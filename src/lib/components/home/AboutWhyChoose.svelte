@@ -1,6 +1,6 @@
 <script lang="ts">
   import Button from "../Button.svelte";
-  let { items } = $props();
+  let { items }: { items: { banners: Array<{ title: string; description: string; desktop_image?: string }> } } = $props();
 </script>
 
 <section class="py-10 bg-primary">
@@ -10,14 +10,14 @@
         .filter((item) => item.title === "About us content" || "About us")
         .slice(0, 2) as imgs}
         <div
-          class="max-w-[330px] w-full h-[370px] overflow-hidden first:mt-15 max-sm:first:hidden"
+          class="max-w-82.5 w-full h-92.5 overflow-hidden first:mt-15 max-sm:first:hidden"
         >
           <img
             src={imgs.desktop_image || "/images/image-placeholder.png"}
             alt={imgs.title}
             class="w-full h-full object-cover rounded-br-none rounded-2xl"
             onerror={(e) => {
-              e.currentTarget.src = "/images/image-placeholder.png";
+              (e.currentTarget as HTMLImageElement).src = "/images/image-placeholder.png";
             }}
           />
         </div>
@@ -52,7 +52,7 @@
             src={imgs.desktop_image}
             alt={imgs.title}
             onerror={(e) => {
-              e.currentTarget.src = "/images/image-placeholder.png";
+              (e.currentTarget as HTMLImageElement).src = "/images/image-placeholder.png";
             }}
             class="w-80 block mx-auto rounded-br-none rounded-2xl image-spin"
           />

@@ -1,9 +1,7 @@
-<script>
+<script lang="ts">
   import Autoplay from "embla-carousel-autoplay";
   import CarouselContent from "../ui/carousel/carousel-content.svelte";
   import CarouselItem from "../ui/carousel/carousel-item.svelte";
-  import CarouselNext from "../ui/carousel/carousel-next.svelte";
-  import CarouselPrevious from "../ui/carousel/carousel-previous.svelte";
   import Carousel from "../ui/carousel/carousel.svelte";
   let { items } = $props();
 </script>
@@ -30,14 +28,14 @@
       class="w-full"
     >
       <CarouselContent>
-        {#each items.data as service}
+        {#each items.banners as service}
           <CarouselItem class="md:basis-1/2 lg:basis-1/3">
             <a href={service.link}>
               <div
-                class="bg-white group rounded-2xl p-10 flex justify-between h-[430px] flex-col rounded-br-none"
+                class="bg-white group rounded-2xl p-10 flex justify-between h-107.5 flex-col rounded-br-none"
               >
                 <div class="text-secondary text-2xl capitalize">
-                  {service.canonical_name}
+                  {service.title}
                 </div>
                 <div class="border-b w-full"></div>
                 <div class="text-c5 text-lg">{service.designation}</div>
@@ -49,10 +47,11 @@
                   ></div>
                   <img
                     class="w-full h-56 object-cover rounded-2xl rounded-br-none"
-                    src={service.service_image ||
-                      "/images/image-placeholder.png"}
+                    src={service.desktop_image ||
+                      "/images/image-pl'aceholder.png"}
                     onerror={(e) => {
-                      e.currentTarget.src = "/images/image-placeholder.png";
+                      (e.currentTarget as HTMLImageElement).src =
+                        "/images/image-placeholder.png";
                     }}
                     alt=""
                   />
@@ -65,8 +64,8 @@
           </CarouselItem>
         {/each}
       </CarouselContent>
-      <CarouselPrevious class="left-2" />
-      <CarouselNext class="right-2" />
+      <!-- <CarouselPrevious class="left-2" />
+      <CarouselNext class="right-2" /> -->
     </Carousel>
   </div>
 </section>

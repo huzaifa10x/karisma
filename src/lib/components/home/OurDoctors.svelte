@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Autoplay from "embla-carousel-autoplay";
   import CarouselContent from "../ui/carousel/carousel-content.svelte";
   import CarouselItem from "../ui/carousel/carousel-item.svelte";
@@ -48,7 +48,7 @@
                     class="w-full object-cover rounded-2xl rounded-br-none"
                     src={doctor.image || "/images/image-placeholder.png"}
                     onerror={(e) => {
-                      e.currentTarget.src = "/images/image-placeholder.png";
+                      (e.currentTarget as HTMLImageElement).src = "/images/image-placeholder.png";
                     }}
                     alt=""
                   />
@@ -59,8 +59,8 @@
           </CarouselItem>
         {/each}
       </CarouselContent>
-      <CarouselPrevious class="left-2" />
-      <CarouselNext class="right-2" />
+      <!-- <CarouselPrevious class="left-2" />
+      <CarouselNext class="right-2" /> -->
     </Carousel>
   </div>
 </section>
