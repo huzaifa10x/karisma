@@ -9,7 +9,7 @@
 </script>
 
 <Navbar />
-<GlobalBanner items={data.aboutPage} />
+<GlobalBanner image={data.aboutPage.data.banner_image} text={"About Us"} />
 <OurStory items={data.aboutPage} />
 <VisionMission items={data.aboutPage} />
 <CEOMessage items={data.aboutPage} />

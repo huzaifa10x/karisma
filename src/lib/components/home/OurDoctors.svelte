@@ -27,7 +27,7 @@
       class="w-full"
     >
       <CarouselContent>
-        {#each items.doctors.slice(1, items.length) as doctor}
+        {#each items.doctors.slice(1) as doctor}
           <CarouselItem class="md:basis-1/2 lg:basis-1/3">
             <a href={doctor.link}>
               <div
@@ -48,7 +48,8 @@
                     class="w-full object-cover rounded-2xl rounded-br-none"
                     src={doctor.image || "/images/image-placeholder.png"}
                     onerror={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = "/images/image-placeholder.png";
+                      (e.currentTarget as HTMLImageElement).src =
+                        "/images/image-placeholder.png";
                     }}
                     alt=""
                   />

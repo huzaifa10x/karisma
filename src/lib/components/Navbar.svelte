@@ -14,7 +14,6 @@
     } else {
       visible = true;
     }
-
     lastScrollY = currentScrollY;
   }
 
@@ -54,7 +53,7 @@
     { label: "ABOUT US", href: "/about" },
     { label: "OUR DOCTORS", href: "/doctors" },
     { label: "CAREERS", href: "/careers" },
-    { label: "CONTACT US", href: "/contact" },
+    { label: "CONTACT US", href: "/contact_us" },
   ];
 
   function toggleMobileMenu() {
@@ -103,7 +102,12 @@
           <button
             class="flex items-center gap-2 text-sm font-semibold text-white hover:text-[#c9a45c]"
           >
-            DEPARTMENTS
+            <a
+              href="/departments"
+              class="text-sm font-semibold text-white hover:text-[#c9a45c]"
+            >
+              DEPARTMENTS
+            </a>
             <ChevronDown
               size={16}
               class={`transition-transform ${departmentsOpen ? "rotate-180" : ""}`}
@@ -168,11 +172,12 @@
     <div class="hidden items-center gap-6 lg:flex">
       <a
         href="tel:+97165068777"
-        class="text-sm font-semibold text-white hover:text-[#c9a45c]"
+        class="text-sm font-semibold text-white space-x-5 hover:text-[#c9a45c]"
       >
         <Phone class="inline" size={18} />
         +971 6 506 8777
       </a>
+      <img src="/images/arabIcon.png" alt="" />
     </div>
 
     <!-- Mobile Toggle -->

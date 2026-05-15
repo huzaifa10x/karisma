@@ -9,12 +9,12 @@
 <Navbar />
 <GlobalBanner
   image={data.doctorsPage.doctors[0].bannerImage}
-  text="Our Doctors"
+  text="Departments"
 />
 <section class="py-20 bg-primary">
   <div class="mx-auto max-w-7xl px-6">
     <div class="grid grid-cols-3 gap-5">
-      {#each data.doctorsPage.doctors.slice(1, data.length) as doctor}
+      {#each data.doctorsPage.doctors.slice(1) as doctor}
         <div class="md:basis-1/2 lg:basis-1/3">
           <a href={doctor.link}>
             <div class="group space-y-">

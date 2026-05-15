@@ -9,7 +9,7 @@
 </script>
 
 <footer class="w-full bg-primary px-6 py-12 text-[#4a4a4a] lg:px-20">
-  <div class="mx-auto mb-12 h-px w-full max-w-7xl bg-[#4a4a4a]/20"></div>
+  <div class="mx-auto mb-12 h-px w-full max-w-4xl bg-black/50"></div>
   <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-5">
     <div class="flex flex-col gap-6 col-span-2">
       <img src="/images/logo_main.png" alt="Karisma Logo" class="w-32" />
@@ -22,7 +22,7 @@
         <a href="/" class="hover:opacity-70"><Facebook size={30} /></a>
         <a href="/" class="hover:opacity-70"><Instagram size={30} /></a>
         <a href="/" class="hover:opacity-70"><Youtube size={35} /></a>
-        <a href="/" aria-label='button' class="hover:opacity-70">
+        <a href="/" aria-label="button" class="hover:opacity-70">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="25"
@@ -37,7 +37,7 @@
             ></path></svg
           >
         </a>
-        <a href="/" aria-label='button' class="hover:opacity-70"
+        <a href="/" aria-label="button" class="hover:opacity-70"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="30.158"
@@ -49,7 +49,7 @@
             ></path></svg
           ></a
         >
-        <a href="/" aria-label='button' class="hover:opacity-70">
+        <a href="/" aria-label="button" class="hover:opacity-70">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="30.158"

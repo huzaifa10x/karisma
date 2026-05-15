@@ -1,6 +1,5 @@
 <script lang="ts">
   let data = $props();
-  $inspect(data.items.data);
 </script>
 
 <section class="bg-primary py-10 space-y-8 px-6">

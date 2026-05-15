@@ -144,6 +144,14 @@
     background-color: rgba(0, 0, 0, 0.623);
     width: 5px;
   }
+  .depart-list::-webkit-scrollbar {
+    background-color: transparent;
+    width: 10px;
+  }
+  .depart-list::-webkit-scrollbar-thumb {
+    background-color: rgb(117, 116, 116);
+    width: 5px;
+  }
 
   html {
     @apply font-sans;
