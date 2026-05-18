@@ -121,8 +121,9 @@
             >
               {#each data.departmentPage?.slice(1) || [] as dept}
                 <div class="group relative">
+                  <!-- {$inspect(dept.link)} -->
                   <a
-                    href={dept.href}
+                    href={"/" + dept.link}
                     class="flex items-center group/one justify-between relative rounded-xl px-4 py-3 text-black/50 uppercase font-semibold hover:text-primary duration-300"
                   >
                     <span
@@ -141,7 +142,7 @@
                   >
                     {#each dept.listItems as child}
                       <a
-                        href={child.href}
+                        href={`/${dept.link}/${child.canonical_name}`}
                         class="block rounded-lg px-4 py-2 relative group/two duration-300 text-black/50 uppercase font-semibold hover:text-primary"
                       >
                         <span
