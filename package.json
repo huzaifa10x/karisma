@@ -33,7 +33,7 @@
 	"devDependencies": {
 		"@fontsource-variable/geist": "^5.2.8",
 		"@internationalized/date": "^3.12.1",
-		"@lucide/svelte": "^1.14.0",
+		"@lucide/svelte": "^1.16.0",
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/kit": "^2.57.0",
 		"@sveltejs/package": "^2.5.7",

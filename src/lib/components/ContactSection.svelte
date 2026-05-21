@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { appointmentModal } from "$lib/stores/appointmentStore.js";
   import { Phone, Mail, MapPin } from "lucide-svelte";
   let { items } = $props();
   let formType = $state("Enquiry");
@@ -30,7 +31,7 @@
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
       <div class="flex flex-col justify-center">
         <h2
-          class="text-5xl leading-tight text-secondary font-seasons md:text-6xl"
+          class="text-5xl leading-tight text-secondary font-seasons font-thin! md:text-5xl"
         >
           Talk To One of Our Experts <br /> Today
         </h2>
@@ -48,6 +49,7 @@
             class="absolute bottom-2 group-hover:bottom-0 -left-2 duration-500 group-hover:left-0 h-full w-full rounded-lg rounded-br-none bg-secondary"
           ></div>
           <button
+            onclick={() => appointmentModal.open()}
             class="relative rounded-lg rounded-br-none border hover:bg-secondary hover:text-white duration-500 border-secondary transition-colors bg-white px-10 py-5 text-sm font-bold tracking-widest text-secondary active:translate-y-1 active:-translate-x-1"
           >
             APPOINTMENT
@@ -143,11 +145,11 @@
           href={item.href}
           class="group flex items-center gap-6 rounded-2xl border border-white/40 p-8 transition-all hover:bg-white/10"
         >
-          <div
+          <divs
             class="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-white"
           >
             <item.icon size={28} strokeWidth={1.5} />
-          </div>
+          </divs>
           <div>
             <h4 class="text-3xl text-secondary">{item.title}</h4>
             <p class="text-secondary">{item.detail}</p>
@@ -155,6 +157,17 @@
         </a>
       {/each}
     </div>
+
+    <!-- svelte-ignore a11y_missing_attribute -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4463.473841064783!2d55.4080799!3d25.3856592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f59a94f0585bf%3A0xb9dd440e8cd8f955!2sKarisma%20Medical%20Center!5e1!3m2!1sen!2sin!4v1779265077845!5m2!1sen!2sin"
+      width="100%"
+      height="450"
+      style="border:0;"
+      loading="lazy"
+      class="mt-20"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
   </div>
 </section>
 

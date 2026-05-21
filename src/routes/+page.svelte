@@ -8,7 +8,7 @@
 </script>
 
 <Navbar />
-<MainHeroSlider />
+<MainHeroSlider items={data.homepage} />
 <AboutWhyChoose items={data.homepage} />
 <Services items={data.service} />
 <OurDoctors items={data.doctors} />

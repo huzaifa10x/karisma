@@ -11,6 +11,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "CabinetGrotesk";
+  src: url("/fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
   --background: oklch(1 0 0);
@@ -132,9 +138,12 @@
   .font-seasons {
     font-family: "seasons", sans-serif;
   }
+  /* .font-cabinet-grotesk {
+  } */
   body {
     @apply bg-background text-foreground;
     min-width: 360px;
+    font-family: "CabinetGrotesk", sans-serif;
   }
   body::-webkit-scrollbar {
     background-color: rgb(217, 197, 173);

@@ -34,7 +34,7 @@
                 class="bg-white group rounded-2xl p-10 space-y-5 rounded-br-none"
               >
                 <div class="text-secondary text-2xl capitalize">
-                  {doctor.canonical_name}
+                  {doctor.name}
                 </div>
                 <div class="border-b w-full"></div>
                 <div class="text-c5 text-lg">{doctor.designation}</div>

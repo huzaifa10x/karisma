@@ -11,7 +11,7 @@
     <div class="text-secondary text-4xl text-center font-seasons capitalize">
       Services
     </div>
-    <p class="text-center text-c5">
+    <p class="text-center text-c5 font-cabinet-grotesk">
       We are elevating your confidence and attractiveness by combining advanced
       medical science with artistry by offering services in below departments
     </p>

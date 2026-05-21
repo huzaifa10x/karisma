@@ -3,7 +3,16 @@
   import Navbar from "$lib/components/Navbar.svelte";
 
   let { data } = $props();
-  console.log(data);
+
+  function addCheckToBold(html: string) {
+    return html.replace(
+      /<b>(.*?)<\/b>/g,
+      `<b><span class="inline-flex items-center gap-2">
+      <span class='text-[#008000] -ml-5'>✓</span>
+      $1
+    </span></b>`,
+    );
+  }
 </script>
 
 <Navbar />
@@ -39,8 +48,8 @@
             <h2 class="text-3xl text-secondary font-seasons mb-3">
               {sections?.section_title}
             </h2>
-            <div class="space-y-3 text-xl text-c5 [&_ul]:space-y-3">
-              {@html sections?.section_description}
+            <div class="space-y-3 text-xl text-c5 [&_ul]:space-y-3 [&_ul]:pl-6">
+              {@html addCheckToBold(sections?.section_description ?? "")}
             </div>
           </div>
         {/each}
@@ -53,20 +62,22 @@
       <div class="space-y-15">
         <div class="grid md:grid-cols-3 gap-7">
           {#each data?.department?.data?.listItems as service}
-            <div
-              class="rounded-2xl overflow-hidden shadow/50 shadow-lg drop-shadow-2xl relative"
+            <a
+              href={`${data?.department?.data?.canonical_name}/${service?.canonical_name}`}
             >
-              <img src={service?.service_image} alt="" />
-              <div class="p-6 absolute z-20 bottom-0 bg-primary w-full">
-                <div class="text-secondary font-seasons text-2xl">
-                  {service?.service_name}
+              <div
+                class="rounded-2xl overflow-hidden shadow/50 shadow-lg drop-shadow-2xl relative"
+              >
+                <img src={service?.service_image} alt="" />
+                <div class="p-6 absolute z-20 bottom-0 bg-primary w-full">
+                  <div class="text-secondary font-seasons text-2xl">
+                    {service?.service_name}
+                  </div>
+                  <span class="text-c5 font-semibold capitalize">Read more</span
+                  >
                 </div>
-                <a
-                  href={`${data?.department?.data?.canonical_name}/${service?.canonical_name}`}
-                  >Read more</a
-                >
               </div>
-            </div>
+            </a>
           {/each}
         </div>
       </div>

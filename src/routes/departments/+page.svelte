@@ -4,12 +4,13 @@
   import { Check } from "lucide-svelte";
 
   let { data } = $props();
+  console.log(data);
 </script>
 
 <Navbar />
 <GlobalBanner
   image={data.departmentsPage.departmentPage[0].bannerImage}
-  text="Our Doctors"
+  text={data.departmentsPage.departmentPage[0].deptName}
 />
 <section class="py-20 bg-primary">
   <div class="mx-auto max-w-375 px-6">

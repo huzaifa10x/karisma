@@ -3,7 +3,6 @@
   import GlobalBanner from "$lib/components/GlobalBanner.svelte";
 
   let { data } = $props();
-  console.log(data.service.doctors);
 </script>
 
 <Navbar />

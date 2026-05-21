@@ -121,7 +121,6 @@
             >
               {#each data.departmentPage?.slice(1) || [] as dept}
                 <div class="group relative">
-                  <!-- {$inspect(dept.link)} -->
                   <a
                     href={"/" + dept.link}
                     class="flex items-center group/one justify-between relative rounded-xl px-4 py-3 text-black/50 uppercase font-semibold hover:text-primary duration-300"
@@ -138,12 +137,12 @@
 
                   <!-- Submenu -->
                   <div
-                    class="invisible absolute left-full top-0 ml-2 w-56 rounded-bl-2xl border border-white/10 bg-white p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100"
+                    class="invisible absolute left-full -top-3.5 ml-2 w-56 rounded-bl-2xl border border-white/10 bg-white p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100"
                   >
                     {#each dept.listItems as child}
                       <a
                         href={`/${dept.link}/${child.canonical_name}`}
-                        class="block rounded-lg px-4 py-2 relative group/two duration-300 text-black/50 uppercase font-semibold hover:text-primary"
+                        class="block rounded-lg px-4 py-2 relative group/two duration-300 text-black/40 uppercase font-semibold hover:text-primary"
                       >
                         <span
                           class="h-1.5 w-1.5 absolute -left-10 opacity-0 group-hover/two:left-1 group-hover/two:opacity-100 duration-300 rounded-full bg-c5"
@@ -173,7 +172,7 @@
     <div class="hidden items-center gap-6 lg:flex">
       <a
         href="tel:+97165068777"
-        class="text-sm font-semibold text-white space-x-5 hover:text-[#c9a45c]"
+        class="text-sm text-white space-x-5 hover:text-[#c9a45c]"
       >
         <Phone class="inline" size={18} />
         +971 6 506 8777
