@@ -4,9 +4,46 @@
   import VisionMission from "$lib/components/about/VisionMission.svelte";
   import GlobalBanner from "$lib/components/GlobalBanner.svelte";
   import Navbar from "$lib/components/Navbar.svelte";
-
   let { data } = $props();
 </script>
+
+<svelte:head>
+  <title>{data?.aboutMeta?.data?.meta_title || "Charisma Medical Center"}</title
+  >
+  <meta
+    name="description"
+    content={data?.aboutMeta?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+
+  <meta
+    name="keywords"
+    content={data?.aboutMeta?.data?.meta_keyword ||
+      "beauty clinic, cosmetic clinic, sharjah, charisma medical center"}
+  />
+
+  <meta
+    property="og:title"
+    content={data?.aboutMeta?.data?.meta_title || "Charisma Medical Center"}
+  />
+
+  <meta
+    property="og:description"
+    content={data?.aboutMeta?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content={data?.aboutMeta?.data?.meta_title || "Charisma Medical Center"}
+  />
+  <meta
+    name="twitter:description"
+    content={data?.aboutMeta?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+</svelte:head>
 
 <Navbar />
 <GlobalBanner image={data.aboutPage.data.banner_image} text={"About Us"} />

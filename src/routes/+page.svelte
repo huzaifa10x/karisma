@@ -5,17 +5,43 @@
   import Services from "$lib/components/home/Services.svelte";
   import OurDoctors from "$lib/components/home/OurDoctors.svelte";
   let { data } = $props();
-  console.log(data.meta.data[0]);
 </script>
 
 <svelte:head>
-  <title>{data?.meta?.data[0]?.meta_title_ar}</title>
-  <meta name="description" content={data?.meta?.data[0]?.meta_description_ar} />
-  <!-- <meta property="og:title" content={post.metaTitle} /> -->
-  <!-- <meta property="og:description" content={post.metaDescription} /> -->
-  <!-- <meta property="og:image" content={post.image} /> -->
+  <title>{data?.homeMeta?.data?.meta_title || "Charisma Medical Center"}</title>
+  <meta
+    name="description"
+    content={data?.homeMeta?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
 
+  <meta
+    name="keywords"
+    content={data?.homeMeta?.data?.meta_keyword ||
+      "beauty clinic, cosmetic clinic, sharjah, charisma medical center"}
+  />
+
+  <meta
+    property="og:title"
+    content={data?.homeMeta?.data?.meta_title || "Charisma Medical Center"}
+  />
+
+  <meta
+    property="og:description"
+    content={data?.homeMeta?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+  <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content={data?.homeMeta?.data?.meta_title || "Charisma Medical Center"}
+  />
+  <meta
+    name="twitter:description"
+    content={data?.homeMeta?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
 </svelte:head>
 
 <Navbar />

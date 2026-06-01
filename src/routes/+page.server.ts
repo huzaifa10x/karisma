@@ -6,8 +6,7 @@ export const load: PageServerLoad = async ({ fetch }: Parameters<PageServerLoad>
         fetch("https://admin.karismamc.com/api/doctors"),
         fetch("https://admin.karismamc.com/api/homepage?banner_type=department"),
         fetch("https://admin.karismamc.com/api/departments"),
-        fetch("https://admin.karismamc.com/public/api/metatagall"),
-
+        fetch("https://admin.karismamc.com/public/api/metatagall?slug=home"),
     ]);
 
     if (!homeRes.ok || !doctorRes.ok || !serviceRes.ok || !departmentsRes.ok || !metaRes.ok) {
@@ -18,15 +17,12 @@ export const load: PageServerLoad = async ({ fetch }: Parameters<PageServerLoad>
     const doctors = await doctorRes.json();
     const service = await serviceRes.json();
     const departments = await departmentsRes.json();
-    const meta = await metaRes.json();
-
-    console.log("Server Data:", { homepage, doctors, service, departments, meta });
-
+    const homeMeta = await metaRes.json();
     return {
         homepage,
         doctors,
         service,
         departments,
-        meta
+        homeMeta
     };
 }

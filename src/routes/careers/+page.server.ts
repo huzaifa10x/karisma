@@ -1,13 +1,16 @@
 export async function load({ fetch }: any) {
-    const [res] = await Promise.all([
+    const [careersRes, careersMetaRes] = await Promise.all([
         fetch("https://admin.karismamc.com/api/careers"),
+        fetch("https://admin.karismamc.com/api/metatagall?slug=careers"),
     ]);
 
-    if (!res.ok) {
+    if (!careersRes.ok || !careersMetaRes.ok) {
         throw new Error("Failed to fetch data");
     }
-    const careersBanner = await res.json();
+    const careersPage = await careersRes.json();
+    const careersMeta = await careersMetaRes.json();
     return {
-        careersBanner,
+        careersPage,
+        careersMeta,
     };
 }

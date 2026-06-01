@@ -1,13 +1,16 @@
 export async function load({ fetch }: any) {
-    const [res] = await Promise.all([
+    const [aboutRes, aboutMetaRes] = await Promise.all([
         fetch("https://admin.karismamc.com/api/aboutuspage"),
+        fetch("https://admin.karismamc.com/public/api/metatagall?slug=about-us"),
     ]);
 
-    if (!res.ok) {
+    if (!aboutRes.ok || !aboutMetaRes.ok) {
         throw new Error("Failed to fetch data");
     }
-    const aboutPage = await res.json();
+    const aboutPage = await aboutRes.json();
+    const aboutMeta = await aboutMetaRes.json();
     return {
         aboutPage,
+        aboutMeta,
     };
 }
