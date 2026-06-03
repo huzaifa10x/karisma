@@ -1,6 +1,3 @@
-<!-- <script lang="ts">
-</script> -->
-
 <footer
   class="w-full bg-primary px-6 py-12 text-c5 lg:px-20 font-cabinet-grotesk"
 >
@@ -250,19 +247,21 @@
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/dental" class="hover:underline">Dental</a>
+          <a href="/en/dental" class="hover:underline">Dental</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/derma" class="hover:underline">Derma</a>
+          <a href="/en/derma" class="hover:underline">Derma</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/laser" class="hover:underline">Laser Hair Removal</a>
+          <a href="/en/laser-hair-removal" class="hover:underline"
+            >Laser Hair Removal</a
+          >
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/skincare" class="hover:underline">Skincare</a>
+          <a href="/en/skincare" class="hover:underline">Skincare</a>
         </li>
       </ul>
     </div>
@@ -273,19 +272,19 @@
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/about" class="hover:underline">About Us</a>
+          <a href="/en/about" class="hover:underline">About Us</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/doctors" class="hover:underline">Our Doctors</a>
+          <a href="/en/doctors" class="hover:underline">Our Doctors</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/careers" class="hover:underline">Careers</a>
+          <a href="/en/careers" class="hover:underline">Careers</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/contact" class="hover:underline">Contact Us</a>
+          <a href="/en/contact_us" class="hover:underline">Contact Us</a>
         </li>
       </ul>
     </div>
@@ -296,19 +295,19 @@
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/policies/privacy-policy" class="hover:underline"
+          <a href="/en/policies/privacy-policy" class="hover:underline"
             >Privacy Policy</a
           >
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/policies/cookie-policy" class="hover:underline"
+          <a href="/en/policies/cookie-policy" class="hover:underline"
             >Cookie Policy</a
           >
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/policies/terms-conditions" class="hover:underline"
+          <a href="/en/policies/terms-conditions" class="hover:underline"
             >Terms and conditions</a
           >
         </li>

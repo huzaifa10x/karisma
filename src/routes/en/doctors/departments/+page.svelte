@@ -4,7 +4,6 @@
   import { Check } from "lucide-svelte";
 
   let { data } = $props();
-  console.log(data);
 </script>
 
 <Navbar />

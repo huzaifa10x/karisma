@@ -50,10 +50,10 @@
   let activeMobileSubmenu = $state<string | null>(null);
 
   const navLinks = [
-    { label: "ABOUT US", href: "/about" },
-    { label: "OUR DOCTORS", href: "/doctors" },
-    { label: "CAREERS", href: "/careers" },
-    { label: "CONTACT US", href: "/contact_us" },
+    { label: "ABOUT US", href: "/en/about" },
+    { label: "OUR DOCTORS", href: "/en/doctors" },
+    { label: "CAREERS", href: "/en/careers" },
+    { label: "CONTACT US", href: "/en/contact_us" },
   ];
 
   function toggleMobileMenu() {
@@ -80,13 +80,13 @@
     class="mx-auto flex h-20 max-w-375 items-center justify-between px-6 lg:h-24 lg:px-10"
   >
     <div class="flex items-center gap-10">
-      <a href="/" class="z-50">
+      <a href="/en/" class="z-50">
         <img src="/images/logo_main.png" class="w-32 lg:w-37.5" alt="Logo" />
       </a>
 
       <div class="hidden items-center gap-10 lg:flex">
         <a
-          href="/about"
+          href="/en/about"
           class="text-sm font-semibold text-white hover:text-[#c9a45c]"
         >
           ABOUT US
@@ -103,7 +103,7 @@
             class="flex items-center gap-2 text-sm font-semibold text-white hover:text-[#c9a45c]"
           >
             <a
-              href="/departments"
+              href="/en/departments"
               class="text-sm font-semibold text-white hover:text-[#c9a45c]"
             >
               DEPARTMENTS
@@ -122,7 +122,7 @@
               {#each data.departmentPage?.slice(1) || [] as dept}
                 <div class="group relative">
                   <a
-                    href={"/" + dept.link}
+                    href={"/en/" + dept.link}
                     class="flex items-center group/one justify-between relative rounded-xl px-4 py-3 text-black/50 uppercase font-semibold hover:text-primary duration-300"
                   >
                     <span
@@ -141,7 +141,7 @@
                   >
                     {#each dept.listItems as child}
                       <a
-                        href={`/${dept.link}/${child.canonical_name}`}
+                        href={`/en/${dept.link}/${child.canonical_name}`}
                         class="block rounded-lg px-4 py-2 relative group/two duration-300 text-black/40 uppercase font-semibold hover:text-primary"
                       >
                         <span
@@ -177,7 +177,7 @@
         <Phone class="inline" size={18} />
         +971 6 506 8777
       </a>
-      <img src="/images/arabIcon.png" alt="" />
+      <img src="/images/enabIcon.png" alt="" />
     </div>
 
     <!-- Mobile Toggle -->

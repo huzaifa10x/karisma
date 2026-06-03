@@ -2,8 +2,6 @@
   import Autoplay from "embla-carousel-autoplay";
   import CarouselContent from "../ui/carousel/carousel-content.svelte";
   import CarouselItem from "../ui/carousel/carousel-item.svelte";
-  import CarouselNext from "../ui/carousel/carousel-next.svelte";
-  import CarouselPrevious from "../ui/carousel/carousel-previous.svelte";
   import Carousel from "../ui/carousel/carousel.svelte";
   let { items } = $props();
 </script>
@@ -29,7 +27,7 @@
       <CarouselContent>
         {#each items.doctors.slice(1) as doctor}
           <CarouselItem class="md:basis-1/2 lg:basis-1/3">
-            <a href={doctor.link}>
+            <a href={`/en/${doctor.link}`}>
               <div
                 class="bg-white group rounded-2xl p-10 space-y-5 rounded-br-none"
               >
