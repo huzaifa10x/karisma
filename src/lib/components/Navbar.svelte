@@ -73,11 +73,12 @@
   class="fixed top-0 left-0 z-50 w-full shadow-lg border-black/30 py-2 transition-all delay-200 duration-300 ease-in-out"
   class:translate-y-0={visible}
   class:-translate-y-full={!visible}
-  class:bg-primary={lastScrollY > 50}
+  class:navBg={lastScrollY > 50}
+  class:backdrop-blur-2xl={lastScrollY > 50}
   class:backdrop-blur-md={lastScrollY > 50}
 >
   <div
-    class="mx-auto flex h-20 max-w-375 items-center justify-between px-6 lg:h-24 lg:px-10"
+    class="mx-auto flex h-24 items-center justify-between px-6 lg:h-24 lg:px-10"
   >
     <div class="flex items-center gap-10">
       <a href="/en/" class="z-50">
@@ -87,7 +88,7 @@
       <div class="hidden items-center gap-10 lg:flex">
         <a
           href="/en/about"
-          class="text-sm font-semibold text-white hover:text-[#c9a45c]"
+          class=" font-semibold text-white hover:text-[#c9a45c]"
         >
           ABOUT US
         </a>
@@ -100,11 +101,11 @@
           onmouseleave={() => (departmentsOpen = false)}
         >
           <button
-            class="flex items-center gap-2 text-sm font-semibold text-white hover:text-[#c9a45c]"
+            class="flex items-center gap-2 font-semibold text-white hover:text-[#c9a45c]"
           >
             <a
               href="/en/departments"
-              class="text-sm font-semibold text-white hover:text-[#c9a45c]"
+              class="font-semibold text-white hover:text-[#c9a45c]"
             >
               DEPARTMENTS
             </a>
@@ -123,14 +124,15 @@
                 <div class="group relative">
                   <a
                     href={"/en/" + dept.link}
-                    class="flex items-center group/one justify-between relative rounded-xl px-4 py-3 text-black/50 uppercase font-semibold hover:text-primary duration-300"
+                    class="flex items-center justify- gap-4 rounded-lg px-4 py-2 relative group/two duration-300 text-black/40 uppercase font-semibold hover:text-primary"
                   >
                     <span
-                      class="h-1.5 w-1.5 absolute -left-10 opacity-0 group-hover/one:left-1 group-hover/one:opacity-100 duration-300 rounded-full bg-c5"
+                      class="h-1.5 w-1.5 -ml-4 -left-10 opacity-0 group-hover/two:left-1 group-hover/two:opacity-100 duration-300 rounded-full bg-c5"
                     ></span>
+
                     {dept.title}
                     <ChevronRight
-                      class="duration-300 delay-100 group-hover:rotate-180"
+                      class="duration-300 delay-100 group-hover:rotate-180 absolute right-0"
                       size={14}
                     />
                   </a>
@@ -142,10 +144,10 @@
                     {#each dept.listItems as child}
                       <a
                         href={`/en/${dept.link}/${child.canonical_name}`}
-                        class="block rounded-lg px-4 py-2 relative group/two duration-300 text-black/40 uppercase font-semibold hover:text-primary"
+                        class="flex items-center gap-4 rounded-lg px-4 py-2 relative group/two duration-300 text-black/40 uppercase font-semibold hover:text-primary"
                       >
                         <span
-                          class="h-1.5 w-1.5 absolute -left-10 opacity-0 group-hover/two:left-1 group-hover/two:opacity-100 duration-300 rounded-full bg-c5"
+                          class="h-1.5 w-1.5 -ml-4 -left-10 opacity-0 group-hover/two:left-1 group-hover/two:opacity-100 duration-300 rounded-full bg-c5"
                         ></span>
                         {child.service_name}
                       </a>
@@ -160,7 +162,7 @@
         {#each navLinks.slice(1) as item}
           <a
             href={item.href}
-            class="text-sm font-semibold text-white hover:text-[#c9a45c]"
+            class="font-semibold text-white hover:text-[#c9a45c]"
           >
             {item.label}
           </a>
@@ -172,12 +174,12 @@
     <div class="hidden items-center gap-6 lg:flex">
       <a
         href="tel:+97165068777"
-        class="text-sm text-white space-x-5 hover:text-[#c9a45c]"
+        class="text-white space-x-5 font-semibold hover:text-[#c9a45c]"
       >
         <Phone class="inline" size={18} />
         +971 6 506 8777
       </a>
-      <img src="/images/enabIcon.png" alt="" />
+      <img src="/images/arabIcon.png" alt="" />
     </div>
 
     <!-- Mobile Toggle -->

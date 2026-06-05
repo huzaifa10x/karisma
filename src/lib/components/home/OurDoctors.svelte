@@ -8,7 +8,7 @@
 
 <section class="py-10 bg-primary">
   <div class="mx-auto max-w-7xl px-6 space-y-10">
-    <div class="text-secondary font-seasons text-4xl text-center capitalize">
+    <div class="text-secondary font-seasons text-[34px] text-center capitalize">
       Our doctors
     </div>
 

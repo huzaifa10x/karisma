@@ -6,4 +6,4 @@
 </script>
 
 <Navbar />
-<GlobalBanner image={data?.careersBanner[0]?.bannerImage} text={"Careers"} />
+<GlobalBanner image={data?.careersPage[0]?.bannerImage} text={"Careers"} />

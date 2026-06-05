@@ -2,23 +2,30 @@
   import { page } from "$app/stores";
 
   let breadcrumbs = $derived(() => {
-    const segments = $page.url.pathname.split("/").filter(Boolean);
+    const segments = $page.url.pathname
+      .split("/")
+      .filter(Boolean)
+      .filter((segment) => !["en", "ar"].includes(segment));
 
     return [
-      { label: "Home", href: "/" },
+      { label: "Home", href: "/en/" },
       ...segments.map((segment, i) => ({
         label:
           segment.charAt(0).toUpperCase() + segment.replace(/-/g, " ").slice(1),
         href:
           i < segments.length - 1
-            ? "/" + segments.slice(0, i + 1).join("/")
+            ? "/en/" + segments.slice(0, i + 1).join("/")
             : undefined,
       })),
     ];
   });
 </script>
 
-<nav aria-label="breadcrumb">
+<nav
+  aria-label="breadcrumb"
+  class="p-2 border border-white/40 rounded-lg rounded-br-none"
+  style="width: fit-content;"
+>
   <ol class="flex items-center gap-2 text-sm">
     {#each breadcrumbs() as item, i}
       <li class="flex items-center gap-2">

@@ -8,10 +8,10 @@
 
 <section class="py-10 bg-primary">
   <div class="mx-auto max-w-7xl px-6 space-y-10">
-    <div class="text-secondary text-4xl text-center font-seasons capitalize">
+    <div class="text-secondary text-[34px] text-center font-seasons capitalize">
       Services
     </div>
-    <p class="text-center text-c5 font-cabinet-grotesk">
+    <p class="text-center text-lg text-c5 font-cabinet-grotesk">
       We are elevating your confidence and attractiveness by combining advanced
       medical science with artistry by offering services in below departments
     </p>

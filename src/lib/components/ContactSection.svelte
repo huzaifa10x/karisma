@@ -31,7 +31,7 @@
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
       <div class="flex flex-col justify-center">
         <h2
-          class="text-5xl leading-tight text-secondary font-seasons font-thin! md:text-5xl"
+          class="text-5xl leading-tight text-secondary font-seasons font-medium! md:text-5xl"
         >
           Talk To One of Our Experts <br /> Today
         </h2>
@@ -151,8 +151,14 @@
             <item.icon size={28} strokeWidth={1.5} />
           </divs>
           <div>
-            <h4 class="text-3xl text-secondary">{item.title}</h4>
-            <p class="text-secondary">{item.detail}</p>
+            <h4
+              class="text-3xl text-black/60 font-seasons group-hover:text-secondary"
+            >
+              {item.title}
+            </h4>
+            <p class="text-black/60 group-hover:text-secondary">
+              {item.detail}
+            </p>
           </div>
         </a>
       {/each}

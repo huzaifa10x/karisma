@@ -4,7 +4,7 @@
   <div class="mx-auto mb-12 h-px w-full max-w-4xl bg-black/50"></div>
   <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-5">
     <div class="flex flex-col gap-6 col-span-2">
-      <img src="/images/logo_main.png" alt="Karisma Logo" class="w-32" />
+      <img src="/images/greemlogo_main.png" alt="Karisma Logo" class="w-32" />
       <p class="leading-relaxed">
         Karisma's philosophy is that true beauty lies within everyone, and
         through their innovative, luxurious treatments, they help individuals
@@ -247,21 +247,23 @@
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/dental" class="hover:underline">Dental</a>
+          <a href="/en/dental">Dental</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/derma" class="hover:underline">Derma</a>
+          <a href="/en/derma">Derma</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/laser-hair-removal" class="hover:underline"
-            >Laser Hair Removal</a
-          >
+          <a href="/en/laser-hair-removal">Laser Hair Removal</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/skincare" class="hover:underline">Skincare</a>
+          <a href="/en/skincare">Skincare</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
+          <a href="/en/plastic-surgery">Plastic Surgery</a>
         </li>
       </ul>
     </div>
@@ -272,19 +274,19 @@
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/about" class="hover:underline">About Us</a>
+          <a href="/en/about">About Us</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/doctors" class="hover:underline">Our Doctors</a>
+          <a href="/en/doctors">Our Doctors</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/careers" class="hover:underline">Careers</a>
+          <a href="/en/careers">Careers</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/contact_us" class="hover:underline">Contact Us</a>
+          <a href="/en/contact_us">Contact Us</a>
         </li>
       </ul>
     </div>
@@ -295,28 +297,22 @@
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/policies/privacy-policy" class="hover:underline"
-            >Privacy Policy</a
-          >
+          <a href="/en/policies/privacy-policy">Privacy Policy</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/policies/cookie-policy" class="hover:underline"
-            >Cookie Policy</a
-          >
+          <a href="/en/policies/cookie-policy">Cookie Policy</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/policies/terms-conditions" class="hover:underline"
-            >Terms and conditions</a
-          >
+          <a href="/en/policies/terms-conditions">Terms and conditions</a>
         </li>
       </ul>
     </div>
   </div>
 
   <!-- Bottom Copyright -->
-  <div class="mt-16 border-t border-[#4a4a4a]/10 pt-8 text-center text-xs">
+  <div class="mt-16 border-t border-white/30 pt-8 text-center text-xs">
     © Copyright 2025. Karisma Medical Center
   </div>
 </footer>

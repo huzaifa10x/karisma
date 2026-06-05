@@ -25,7 +25,7 @@
       href="https://wa.me/yournumber"
       class="flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg hover:scale-105 transition-transform bg-secondary-foreground"
     >
-      <MessageCircle size={22} />
+      <img class="w-5" src="/images/whatsapp-white-icon.webp" alt="" />
     </a>
 
     <a

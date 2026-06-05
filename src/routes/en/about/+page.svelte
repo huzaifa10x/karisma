@@ -8,8 +8,7 @@
 </script>
 
 <svelte:head>
-  <title>{data?.aboutMeta?.data?.meta_title || "Charisma Medical Center"}</title
-  >
+  <title>{data?.aboutMeta?.data?.meta_title || "karisma Medical Center"}</title>
   <meta
     name="description"
     content={data?.aboutMeta?.data?.meta_description ||
@@ -19,12 +18,12 @@
   <meta
     name="keywords"
     content={data?.aboutMeta?.data?.meta_keyword ||
-      "beauty clinic, cosmetic clinic, sharjah, charisma medical center"}
+      "beauty clinic, cosmetic clinic, sharjah, karisma medical center"}
   />
 
   <meta
     property="og:title"
-    content={data?.aboutMeta?.data?.meta_title || "Charisma Medical Center"}
+    content={data?.aboutMeta?.data?.meta_title || "karisma Medical Center"}
   />
 
   <meta
@@ -36,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:title"
-    content={data?.aboutMeta?.data?.meta_title || "Charisma Medical Center"}
+    content={data?.aboutMeta?.data?.meta_title || "karisma Medical Center"}
   />
   <meta
     name="twitter:description"
@@ -46,7 +45,7 @@
 </svelte:head>
 
 <Navbar />
-<GlobalBanner image={data.aboutPage.data.banner_image} text={"About Us"} />
+<GlobalBanner image={data.aboutPage.data.banner_image} text={"About us"} />
 <OurStory items={data.aboutPage} />
 <VisionMission items={data.aboutPage} />
 <CEOMessage items={data.aboutPage} />

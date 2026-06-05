@@ -1,5 +1,7 @@
 <script lang="ts">
   import Fade from "embla-carousel-fade";
+  // 1. Autoplay plugin import kiya
+  import Autoplay from "embla-carousel-autoplay";
   import Carousel from "./ui/carousel/carousel.svelte";
   import CarouselItem from "./ui/carousel/carousel-item.svelte";
   import CarouselContent from "./ui/carousel/carousel-content.svelte";
@@ -20,21 +22,11 @@
 </script>
 
 <Carousel
-  plugins={[Fade()]}
+  plugins={[Fade(), Autoplay({ delay: 4000, stopOnInteraction: false })]}
   opts={{ loop: true }}
   class="relative w-full mx-auto"
 >
   <CarouselContent>
-    <!-- {#if loading}
-      <div
-        class="w-full flex items-center justify-center md:h-screen h-100 bg-primary"
-      >
-        <div
-          class="rounded-full w-12.5 h-12.5 border-secondary-foreground border-2 animate-spin border-r-0"
-        ></div>
-      </div>
-    {/if} -->
-
     {#if items?.banners}
       {#each items.banners.filter((item: any) => item.title === "Home Slider") as slider, i}
         <CarouselItem>
@@ -57,12 +49,10 @@
   >
     <CarouselPrevious
       class="static translate-y-0 bg-transparent border-0 cursor-pointer"
-      // variant="outline"
       size="icon"
     />
     <CarouselNext
       class="static translate-y-0 bg-transparent border-0 cursor-pointer"
-      // variant="outline"
       size="icon"
     />
   </div>

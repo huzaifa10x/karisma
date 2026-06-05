@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: "Seasons";
-  src: url("/fonts/The-Seasons/The Seasons Bold.ttf") format("woff2");
+  src: url("/fonts/The-Seasons/The Seasons Light.ttf") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -137,6 +137,7 @@
   }
   .font-seasons {
     font-family: "seasons", sans-serif;
+    font-weight: 600;
   }
   /* .font-cabinet-grotesk {
   } */
@@ -209,4 +210,8 @@
 /* Optional hover speed boost */
 .image-spin:hover {
   animation-duration: 2s;
+}
+
+.navBg {
+  background-color: #d9c5ada7;
 }

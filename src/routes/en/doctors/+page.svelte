@@ -8,7 +8,7 @@
 
 <svelte:head>
   <title
-    >{data?.doctorsMeta?.data?.meta_title || "Charisma Medical Center"}</title
+    >{data?.doctorsMeta?.data?.meta_title || "karisma Medical Center"}</title
   >
   <meta
     name="description"
@@ -19,12 +19,12 @@
   <meta
     name="keywords"
     content={data?.doctorsMeta?.data?.meta_keyword ||
-      "beauty clinic, cosmetic clinic, sharjah, charisma medical center"}
+      "beauty clinic, cosmetic clinic, sharjah, karisma medical center"}
   />
 
   <meta
     property="og:title"
-    content={data?.doctorsMeta?.data?.meta_title || "Charisma Medical Center"}
+    content={data?.doctorsMeta?.data?.meta_title || "karisma Medical Center"}
   />
 
   <meta
@@ -36,7 +36,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:title"
-    content={data?.doctorsMeta?.data?.meta_title || "Charisma Medical Center"}
+    content={data?.doctorsMeta?.data?.meta_title || "karisma Medical Center"}
   />
   <meta
     name="twitter:description"
@@ -48,14 +48,14 @@
 <Navbar />
 <GlobalBanner
   image={data.doctorsPage.doctors[0].bannerImage}
-  text="Departments"
+  text="Our Doctors"
 />
 <section class="py-20 bg-primary">
   <div class="mx-auto max-w-7xl px-6">
     <div class="grid grid-cols-3 gap-5">
       {#each data.doctorsPage.doctors.slice(1) as doctor}
         <div class="md:basis-1/2 lg:basis-1/3">
-          <a href={doctor.link}>
+          <a href={`/en/doctor/${doctor.canonical_name}`}>
             <div class="group space-y-">
               <img
                 class="w-full object-cover rounded-2xl rounded-br-none mb-5"
@@ -67,7 +67,7 @@
                 alt=""
               />
               <div class="text-secondary text-2xl capitalize">
-                {doctor.canonical_name}
+                {doctor.name}
               </div>
               <div class="text-c5 text-lg">{doctor.designation}</div>
               <div class="text-secondary font-semibold">
