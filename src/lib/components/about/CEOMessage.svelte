@@ -2,7 +2,7 @@
   let data = $props();
 </script>
 
-<section class="bg-primary py-10 space-y-8 px-6">
+<section class="bg-primary py-10 space-y-8 px-0 lg:px-6">
   <div class="max-w-5xl mx-auto px-6 bg-[#d1bb9f] rounded-xl">
     <div class="md:flex items-center gap-7 py-6 space-y-6">
       <div>
@@ -17,14 +17,14 @@
         />
       </div>
       <div class="space-y-2">
-        <div class="text-secondary font-medium text-3xl">CEO Message</div>
-        <p class="text-c5 lg:leading-7 leading-7 max-w-275">
+        <div class="text-secondary text-center lg:text-left font-bold lg:font-normal text-[25px] lg:text-3xl">CEO Message</div>
+        <p class="text-c5 lg:leading-7 leading-7 max-w-275 text-center lg:text-left">
           {@html data.items.data.ceo_message.ceoMessageContent}
         </p>
-        <div class="text-secondary font-medium text-2xl">
+        <div class="text-secondary font-medium text-2xl text-center lg:text-left">
           {data.items.data.ceo_message.ceoName}
         </div>
-        <div class="text-c5">
+        <div class="text-c5 text-center lg:text-left">
           {data.items.data.ceo_message.ceoDesignation}
         </div>
       </div>

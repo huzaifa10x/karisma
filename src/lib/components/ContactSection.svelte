@@ -4,6 +4,10 @@
   let { items } = $props();
   let formType = $state("Enquiry");
 
+  let formData = $state({ name: "", email: "", phone: "", message: "" });
+  let errors = $state({});
+  let isSubmitting = $state(false);
+
   const contactInfo = [
     {
       icon: Phone,
@@ -24,21 +28,48 @@
       href: "#",
     },
   ];
+
+  function validate() {
+    let newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+    if (!formData.phone.trim()) newErrors.phone = "Phone is required";
+    
+    errors = newErrors;
+    return Object.keys(newErrors).length === 0;
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    isSubmitting = true;
+    console.log("Submitting:", formData);
+    
+    // Perform your API fetch here
+    // ...
+    
+    isSubmitting = false;
+  }
 </script>
 
-<section class="min-h-screen bg-[#DBC8B0] px-6 py-20 md:px-20">
+<section class="min-h-screen bg-[#DBC8B0] px-6 pt-20 md:px-20">
   <div class="mx-auto max-w-7xl">
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
       <div class="flex flex-col justify-center">
         <h2
-          class="text-5xl leading-tight text-secondary font-seasons font-medium! md:text-5xl"
+          class="text-[30px] leading-tight text-secondary font-seasons font-medium! lg:text-5xl"
         >
-          Talk To One of Our Experts <br /> Today
+          Talk To One of Our Experts Today
         </h2>
 
         <div class="mt-10">
-          <h3 class="text-3xl font-seasons text-secondary">Working Hours</h3>
-          <p class="mt-4 text-lg text-c5">
+          <h3 class="text-[22px] lg:text-3xl font-seasons text-secondary">Working Hours</h3>
+          <p class="mt-4 text-[16px] lg:text-lg text-c5">
             Sunday- Thursday 10:00 AM to 8:00 PM
           </p>
           <p class="text-lg text-c5">Saturday from 10:00 AM to 9:00 PM</p>
@@ -46,11 +77,11 @@
 
         <div class="relative group mt-12 w-fit">
           <div
-            class="absolute bottom-2 group-hover:bottom-0 -left-2 duration-500 group-hover:left-0 h-full w-full rounded-lg rounded-br-none bg-secondary"
+            class="absolute bottom-2 group-hover:bottom-0 -left-2 duration-500 group-hover:left-0 h-full w-full rounded-lg rounded-br-none bg-[#405D53]"
           ></div>
           <button
             onclick={() => appointmentModal.open()}
-            class="relative rounded-lg rounded-br-none border hover:bg-secondary hover:text-white duration-500 border-secondary transition-colors bg-white px-10 py-5 text-sm font-bold tracking-widest text-secondary active:translate-y-1 active:-translate-x-1"
+            class="relative rounded-lg rounded-br-none border hover:bg-[#405D53] hover:text-white duration-500 border-secondary transition-colors bg-white px-10 py-5 text-md lg:text-sm font-bold lg:tracking-widest text-secondary active:translate-y-1 active:-translate-x-1"
           >
             APPOINTMENT
           </button>
@@ -60,28 +91,28 @@
       <div
         class="rounded-3xl rounded-br-none bg-[#F4F7F8] p-8 shadow-sm md:p-12"
       >
-        <div class="flex gap-10">
-          <label class="flex cursor-pointer items-center gap-2 text-secondary">
+        <div class="flex flex-wrap gap-5 lg:gap-10">
+          <label class="flex cursor-pointer items-center w-full lg:w-auto gap-2 text-secondary">
             <input
               type="radio"
               bind:group={formType}
               value="Enquiry"
               class="accent-second text-secondary h-4 w-4"
             />
-            <span class="font-medium">Enquiry</span>
+            <span class="font-bold lg:font-medium">Enquiry</span>
           </label>
-          <label class="flex cursor-pointer items-center gap-2 text-secondary">
+          <label class="flex cursor-pointer items-center w-full lg:w-auto gap-2 text-secondary">
             <input
               type="radio"
               bind:group={formType}
               value="Feedback"
               class="accent-second text-secondary h-4 w-4"
             />
-            <span class="font-medium">Feedback</span>
+            <span class="font-bold lg:font-medium">Feedback</span>
           </label>
         </div>
 
-        <form class="mt-10 space-y-3">
+        <form onsubmit={handleSubmit} class="mt-5 lg:mt-10 space-y-3" novalidate>
           <div class="relative">
             <!-- <label class="block italic text-secondary">Name</label> -->
             <input
@@ -89,49 +120,50 @@
               placeholder="Name"
               class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
             />
+            {#if errors.name}<p class="text-red-500 text-sm mt-1">{errors.name}</p>{/if}
           </div>
 
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div>
-              <!-- <label class="block italic text-secondary">Email</label> -->
               <input
                 type="email"
                 placeholder="Email"
                 class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
               />
+              {#if errors.email}<p class="text-red-500 text-sm mt-1">{errors.email}</p>{/if}
             </div>
             <div class="flex gap-4">
               <div class="w-16">
-                <!-- <label class="block italic text-secondary">+971</label> -->
                 <input
                   type="text"
                   placeholder="+971"
                   disabled
                   class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none"
                 />
+                {#if errors.countrycode}<p class="text-red-500 text-sm mt-1">{errors.countrycode}</p>{/if}
               </div>
               <div class="flex-1">
-                <!-- <label class="block italic text-secondary">Phone</label> -->
                 <input
                   type="tel"
                   placeholder="Phone"
                   class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
                 />
+                {#if errors.phone}<p class="text-red-500 text-sm mt-1">{errors.phone}</p>{/if}
               </div>
             </div>
           </div>
 
           <div>
-            <!-- <label class="block italic text-secondary">Message</label> -->
             <textarea
               rows="1"
               placeholder="Message"
               class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
             ></textarea>
+            {#if errors.message}<p class="text-red-500 text-sm mt-1">{errors.message}</p>{/if}
           </div>
 
           <button
-            class="mt-4 rounded-md rounded-br-none bg-secondary px-12 py-4 font-bold text-white transition-opacity hover:opacity-90"
+            class="mt-4 rounded-md rounded-br-none bg-[#405D53] px-12 py-4 font-bold text-white transition-opacity hover:bg-[#AA9380]"
           >
             SEND NOW
           </button>
@@ -143,20 +175,20 @@
       {#each contactInfo as item}
         <a
           href={item.href}
-          class="group flex items-center gap-6 rounded-2xl border border-white/40 p-8 transition-all hover:bg-white/10"
+          class="group flex items-center gap-6 rounded-t-2xl rounded-s-2xl border border-white/40 p-8 transition-all "
         >
           <divs
-            class="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-white"
+            class="flex h-12 w-12 lg:h-14 lg:w-14 items-center justify-center rounded-full bg-[#405D53] text-white"
           >
-            <item.icon size={28} strokeWidth={1.5} />
+            <item.icon class='lg:w-8 lg:h-8'/>
           </divs>
           <div>
             <h4
-              class="text-3xl text-black/60 font-seasons group-hover:text-secondary"
+              class="text-3xl text-black font-seasons group-hover:text-secondary"
             >
               {item.title}
             </h4>
-            <p class="text-black/60 group-hover:text-secondary">
+            <p class="text-black group-hover:text-secondary">
               {item.detail}
             </p>
           </div>

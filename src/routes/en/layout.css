@@ -168,6 +168,13 @@
   }
 }
 
+@layer utilities {
+  .preserve-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+  .perspective-\[1000px\] { perspective: 1000px; }
+}
+
 ::selection {
   background: #577056;
   color: #ffffffa6;
@@ -214,4 +221,37 @@
 
 .navBg {
   background-color: #d9c5ada7;
+}
+
+.topSpacing{
+  object-position: 50% -80px;
+}
+
+@media screen and (max-width:768px){
+  .topSpacing{
+     object-position: 50% 0px;
+  }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+.bgImage {
+    z-index: 1;
+    content: "";
+    background-image: url(/images/team-bg-1.webp);
+    position: absolute;
+    background-position: center;
+    background-size: 58%;
+    right: 0;
+    bottom: 0;
+    width: 650px;
+    height: 558px;
+    opacity: 0.4;
 }

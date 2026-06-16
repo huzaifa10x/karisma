@@ -36,7 +36,7 @@
     </div> -->
     <div class="flex justify-center gap-5">
       <div
-        class="max-w-82.5 w-full h-99 overflow-hidden first:mt-15 max-sm:first:hidden"
+        class="max-w-82.5 w-full h-99 overflow-hidden first:mt-15"
       >
         <img
           src={items.banners[1].desktop_image ||
@@ -50,7 +50,7 @@
         />
       </div>
       <div
-        class="max-w-82.5 w-full h-99 overflow-hidden first:mt-15 max-sm:first:hidden"
+        class="max-w-82.5 w-full h-99 overflow-hidden second:mt-15 max-sm:last:hidden"
       >
         <img
           src={items.banners[0].desktop_image ||

@@ -8,7 +8,7 @@
 
 <section class="py-10 bg-primary">
   <div class="mx-auto max-w-7xl px-6 space-y-10">
-    <div class="text-secondary text-[34px] text-center font-seasons capitalize">
+    <div class="text-secondary  text-[30px] lg:text-[34px] text-center font-seasons capitalize">
       Services
     </div>
     <p class="text-center text-lg text-c5 font-cabinet-grotesk">
@@ -32,9 +32,9 @@
           <CarouselItem class="md:basis-1/2 lg:basis-1/3">
             <a href={`/en/${service.link}`}>
               <div
-                class="bg-white group rounded-2xl p-10 flex justify-between h-107.5 flex-col rounded-br-none"
+                class="bg-white group rounded-2xl py-10 px-5 lg:p-10 flex justify-between h-107.5 flex-col rounded-br-none"
               >
-                <div class="text-secondary text-2xl capitalize">
+                <div class="text-secondary  text-[24px] lg:text-2xl capitalize">
                   {service.title}
                 </div>
                 <div class="border-b w-full"></div>
