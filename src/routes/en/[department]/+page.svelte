@@ -1,18 +1,31 @@
 <script lang="ts">
+  import DoctorsSlider from "$lib/components/DoctorsSlider.svelte";
   import GlobalBanner from "$lib/components/GlobalBanner.svelte";
   import Navbar from "$lib/components/Navbar.svelte";
 
   let { data } = $props();
 
-  function addCheckToBold(html: string) {
-    return html.replace(
-      /<b>(.*?)<\/b>/g,
-      `<b><span class="inline-flex items-center gap-2">
-      <span class='text-[#008000] -ml-5'>✓</span>
-      $1
-    </span></b>`,
-    );
+  function processHtml(html: string | null | undefined): string {
+    if (!html || typeof window === "undefined") return html ?? "";
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    doc.querySelectorAll("li").forEach((li) => {
+      const isNested = li.parentElement?.closest("li") !== null;
+      const icon = isNested ? "−" : "✓";
+
+      const span = document.createElement("span");
+      span.className = "text-[#008000] -ml-7 px-2 font-bold";
+      span.textContent = icon;
+
+      li.prepend(span);
+      li.prepend(document.createTextNode(" "));
+    });
+
+    return doc.body.innerHTML;
   }
+  console.log( data?.department?.data?.listItems);
 </script>
 
 <Navbar />
@@ -34,10 +47,14 @@
             />
           </div>
           <div class="space-y-3">
-            <h1 class="text-secondary-foreground text-[34px] font-seasons">
+            <h1
+              class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px] font-seasons"
+            >
               {data?.department?.data?.department_name}
             </h1>
-            <div class="text-xl text-c5 space-y-5">
+            <div
+              class="text-c5 space-y-5 [&>b]:font-semibold text-[16px]/[24px] lg:text-[20px]/[30px]"
+            >
               {@html data?.department?.data?.department_description}
             </div>
           </div>
@@ -45,45 +62,61 @@
       </div>
     </div>
 
-    <section class="py-10">
-      <div class="space-y-15">
-        {#each data?.department?.data?.sections as sections, index}
-          <div
-            class={`p-8 rounded-xl ${
-              index % 2 === 0 ? "bg-primary" : "bg-[#c4a98863]"
-            }`}
-          >
-            <div class="mx-auto max-w-375 px-6">
-              <h2 class="text-[26px] text-secondary font-seasons mb-3">
-                {sections?.section_title}
-              </h2>
-            </div>
-
-            <div
-              class="space-y-3 text-[17px] text-c5 [&_ul]:space-y-3 [&_ul]:pl-6 mx-auto max-w-375 px-6"
+   
+    <section class="">
+      {#each data?.department?.data?.sections as sections, index}
+        <div
+          class={`p-8 rounded-xl ${
+            index % 2 === 0 ? "bg-primary" : "bg-[#c4a98863]"
+          }`}
+        >
+          <div class="lg:mx-auto lg:max-w-375 px-0 lg:px-6">
+            <h2
+              class="text-[22px] lg:text-[26px]/[34px] font-bold text-[#405d53] font-seasons mb-3"
             >
-              {@html addCheckToBold(sections?.section_description ?? "")}
-            </div>
+              {sections?.section_title}
+            </h2>
           </div>
-        {/each}
-      </div>
+
+          <div
+            class=" lg:space-y-3 lg:text-[20px]/[30px] text-[16px]/[24px]
+            font-light
+            [&_b]:font-semibold [&_li_b]:font-semibold
+            text-c5
+            [&_ul]:space-y-1 [&_ul]:pl-6
+            mx-auto lg:max-w-375 lg:px-6
+        [&_h4]:text-[22px] lg:[&_h4]:text-[26px]/[34px] [&_h4]:text-[#405d53] [&_h4]:font-bold [&_h4]:font-[seasons]"
+          >
+            <!-- Process each section description individually -->
+            {@html processHtml(sections?.section_description)}
+          </div>
+        </div>
+      {/each}
     </section>
 
     <!-- Related Services -->
-    <section class="py-10 space-y-4 bg-[#c4a98863]">
+     {#if data?.department?.data?.listItems && data.department.data.listItems.length > 0}
+    <section class="py-10 space-y-4 bg-[#D1BB9F]">
       <div class="space-y-15 mx-auto max-w-375 px-6">
-        <h2 class="text-secondary font-seasons text-3xl">Relateds Services</h2>
-        <div class="grid md:grid-cols-3 gap-7">
+        <h2 class="text-[26px]/[34px] font-bold text-[#405d53] font-seasons">
+          Related Services
+        </h2>
+        <div class="grid md:grid-cols-3 gap-7 bg-[#D1BB9F]">
           {#each data?.department?.data?.listItems as service}
             <a
               href={`${data?.department?.data?.canonical_name}/${service?.canonical_name}`}
             >
               <div
-                class="rounded-2xl overflow-hidden shadow/50 shadow-lg drop-shadow-2xl relative"
+                class="rounded-2xl overflow-hidden shadow-[0_0_13px_#06060659] relative bg-[#D1BB9F]"
               >
-                <img src={service?.service_image} alt="" />
+                <img
+                  src={service?.service_image ??
+                    "/images/image-placeholder.png"}
+                  class="w-full"
+                  alt=""
+                />
                 <div class="p-6 absolute z-20 bottom-0 bg-primary w-full">
-                  <div class="text-secondary font-seasons text-2xl">
+                  <div class="text-[#405d53] text-[22px]/[33px] font-[serif]">
                     {service?.service_name}
                   </div>
                   <span class="text-c5 font-semibold capitalize">Read more</span
@@ -95,45 +128,11 @@
         </div>
       </div>
     </section>
+    {/if}
 
     <!-- Related Doctors -->
-    <section class="py-10 space-y-4">
-      <div class="space-y-15 mx-auto max-w-375 px-6">
-        <h2 class="text-secondary font-seasons text-3xl">Related Doctors</h2>
-        <div class="grid md:grid-cols-3 gap-7">
-          {#each data?.department?.data?.doctors as dept}
-            <a href={`/en/doctor/${dept?.canonical_name}`}>
-              <div
-                class="bg-white group rounded-2xl p-10 space-y-5 rounded-br-none"
-              >
-                <div class="text-secondary text-2xl capitalize">
-                  {dept?.doctor_name}
-                </div>
-                <div class="border-b w-full"></div>
-                <div class="text-c5 text-lg">{dept?.designation}</div>
-                <div
-                  class="relative overflow-hidden rounded-2xl rounded-br-none"
-                >
-                  <div
-                    class="w-full h-full scale-0 group-hover:scale-100 duration-500 bg-secondary-foreground/50 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                  ></div>
-                  <img
-                    class="w-full object-cover rounded-2xl rounded-br-none"
-                    src={"https://admin.karismamc.com/public/storage/" +
-                      dept?.photo || "/images/image-placeholder.png"}
-                    alt=""
-                    onerror={(e) => {
-                      (e.currentTarget as HTMLImageElement).src =
-                        "/images/image-placeholder.png";
-                    }}
-                  />
-                </div>
-                <div class="text-secondary font-semibold">Read more</div>
-              </div>
-            </a>
-          {/each}
-        </div>
-      </div>
-    </section>
+    {#if data?.department?.data?.doctors && data.department.data.doctors.length > 0}
+      <DoctorsSlider docData={data?.department?.data?.doctors} />
+    {/if}
   </div>
 </section>

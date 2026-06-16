@@ -39,6 +39,7 @@
 		"@sveltejs/package": "^2.5.7",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@tailwindcss/vite": "^4.2.2",
+		"@types/node": "^25.9.2",
 		"bits-ui": "^2.18.0",
 		"clsx": "^2.1.1",
 		"embla-carousel-svelte": "^8.6.0",

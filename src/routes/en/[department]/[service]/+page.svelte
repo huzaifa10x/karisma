@@ -1,17 +1,40 @@
 <script lang="ts">
   import Navbar from "$lib/components/Navbar.svelte";
   import GlobalBanner from "$lib/components/GlobalBanner.svelte";
+    import DoctorsSlider from "$lib/components/DoctorsSlider.svelte";
 
   let { data } = $props();
 
-  function addCheckToBold(html: string) {
-    return html.replace(
-      /<b>(.*?)<\/b>/g,
-      `<b><span class="inline-flex items-center gap-2">
-      <span class='text-[#008000] -ml-5'>✓</span>$1</span>
-    </b>`,
-    );
-  }
+  function processHtml(html: string | null | undefined): string {
+  if (!html || typeof window === 'undefined') return html ?? "";
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+  
+  doc.querySelectorAll("li").forEach((li) => {
+    const isNested = li.parentElement?.closest("li") !== null;
+    const icon = isNested ? "−" : "✓";
+    
+    const span = document.createElement("span");
+    span.className = "text-[#008000] -ml-7 px-2 font-bold";
+    span.textContent = icon;
+    
+    li.prepend(span);
+    li.prepend(document.createTextNode(" "));
+  });
+
+  return doc.body.innerHTML;
+}
+
+function truncateHtml(html: string | null | undefined, limit: number): string {
+  if (!html) return "";
+
+  const plainText = html.replace(/<[^>]*>/g, '');
+
+  if (plainText.length <= limit) return html;
+
+  return plainText.substring(0, limit);
+}  
 </script>
 
 <Navbar />
@@ -23,16 +46,20 @@
 <section class="bg-primary">
   <div class="">
     <div class="bg-[#c4a98863] py-10">
-      <div class="mx-auto max-w-375 px-6">
+      <div class="mx-auto max-w-375 px-3 lg:px-6">
         <div class="grid md:grid-cols-2 gap-10">
           <div>
             <img class="w-full" src={data?.service?.service_image} alt="" />
           </div>
           <div class="space-y-3">
-            <h1 class="text-secondary-foreground text-[34px] font-seasons">
+            <h1
+              class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px]  font-seasons"
+            >
               {data?.service?.service_name}
             </h1>
-            <div class="text-xl text-c5 space-y-5">
+            <div
+              class="text-c5 space-y-5 [&>b]:font-semibold text-[16px]/[24px] lg:text-[20px]/[30px]"
+            >
               {@html data?.service?.service_description}
             </div>
           </div>
@@ -40,92 +67,63 @@
       </div>
     </div>
 
-    <section class="py-10">
-      <div class="space-y-15">
-        {#each data?.service?.servicesections as sections, index}
-          <div
-            class={`p-8 rounded-xl ${
-              index % 2 === 0 ? "bg-primary" : "bg-[#c4a98863]"
-            }`}
+    <section class="">
+      {#each data?.service?.servicesections as sections, index}
+        <div
+          class={`p-4 lg:pl-8 lg:px-8 rounded-xl ${
+            index % 2 === 0 ? "bg-primary" : "bg-[#c4a98863]"
+          }`}
+        >
+          <h2
+            class=" mx-auto max-w-375 px-2 lg:px-6 font-seasons text-[22px] lg:text-[26px]/[34px] font-bold text-[#405d53] font-seasons mb-1"
           >
-            <h2
-              class="text-3xl text-secondary mx-auto max-w-375 px-6 font-seasons mb-3"
-            >
-              {sections?.section_title}
-            </h2>
-            <div
-              class="space-y-3 mx-auto max-w-375 px-6 text-xl text-c5 [&_ul]:pl-6 [&_ul]:space-y-3 [&_h4]:text-3xl [&_h4]:text-secondary [&_h4]:font-seasons [&_h4]:mb-3"
-            >
-              {@html addCheckToBold(sections?.section_description)}
-            </div>
+            {sections?.section_title}
+          </h2>
+          <div
+            class="space-y-2 lg:text-[20px]/[30px] md:text-[17px]/[26px] font-light [&_b]:font-semibold [&_li_b]:font-semibold text-c5 [&_ul]:space-y-1 [&_ul]:pl-6 mx-auto
+            max-w-375 px-2 lg:px-6 [&_h4]:text-[22px] lg:[&_h4]:text-[26px]/[34px] [&_h4]:text-[#405d53] [&_h4]:font-bold [&_h4]:font-[seasons]"
+          >
+            <!-- {@html addCheckToBold(sections?.section_description)} -->
+             {@html processHtml(sections?.section_description)}
           </div>
-        {/each}
-      </div>
-    </section>
-
-    <section class="py-10 bg-[#c4a98863]">
-      <div class="space-y-15 mx-auto max-w-375 px-6">
-        <div class="grid md:grid-cols-3 gap-9">
-          {#each data?.service?.subservices as service}
-            <a
-              href={`${data.service.canonical_name}/${service.canonical_name}`}
-              class="relative group shadow-[0px_0px_15px_8px_rgba(0,0,0,0.19)] overflow-hidden flex flex-col items-start justify-between space-y-3 p-5 rounded-bl-2xl rounded-tr-2xl"
-            >
-              <div
-                class="w-0 h-0 bottom-0 left-0 group-hover:w-full duration-300 group-hover:h-full bg-[#AA9380] absolute top-0"
-              ></div>
-              <div
-                class="text-[22px] font-seasons text-secondary relative z-10"
-              >
-                {service.sub_service_name}
-              </div>
-              <p class="[&_b]:hidden text-c5 relative z-10">
-                {@html service.small_description}
-              </p>
-              <div class="text-c5 font-bold relative z-10">Read More</div>
-            </a>
-          {/each}
         </div>
-      </div>
+      {/each}
     </section>
 
-    <section class="py-10 space-y-4">
-      <div class="space-y-15 mx-auto max-w-375 px-6">
-        <h2 class="text-secondary font-seasons text-3xl">Related Doctors</h2>
-        <div class="grid md:grid-cols-3 gap-7">
-          {#each data?.service?.doctors as service}
-            <a href={`/en/doctor/${service?.canonical_name}`}>
-              <div
-                class="bg-white group rounded-2xl p-10 space-y-5 rounded-br-none"
+    {#if data?.service?.subservices && data?.service?.subservices.length > 0}
+      <section class="py-10 bg-[#c4a98863]">
+        <div class="space-y-15 mx-auto max-w-350 px-4">
+          <div class="grid md:grid-cols-3 gap-9">
+            {#each data?.service?.subservices as service}
+              <a
+                href={`${data.service.canonical_name}/${service.canonical_name}`}
+                class="relative group shadow-[0px_0px_13px_#06060659] overflow-hidden flex flex-col 
+                items-start justify-between space-y-2 p-6 rounded-bl-2xl rounded-tr-2xl"
               >
-                <div class="text-secondary text-2xl capitalize">
-                  {service?.doctor_name}
-                </div>
-                <div class="border-b w-full"></div>
-                <div class="text-c5 text-lg">{service?.designation}</div>
                 <div
-                  class="relative overflow-hidden rounded-2xl rounded-br-none"
+                  class="w-0 h-0 bottom-0 left-0 group-hover:w-full duration-300 group-hover:h-full bg-[#AA9380] absolute top-0"
+                ></div>
+                <div
+                  class="text-[22px] font-seasons text-secondary relative z-10 font-[serif] py-3 font-light"
                 >
-                  <div
-                    class="w-full h-full scale-0 group-hover:scale-100 duration-500 bg-secondary-foreground/50 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                  ></div>
-                  <img
-                    class="w-full object-cover rounded-2xl rounded-br-none"
-                    src={"https://admin.karismamc.com/public/storage/" +
-                      service?.photo || "/images/image-placeholder.png"}
-                    alt=""
-                    onerror={(e) => {
-                      (e.currentTarget as HTMLImageElement).src =
-                        "/images/image-placeholder.png";
-                    }}
-                  />
+                  {service.sub_service_name}
                 </div>
-                <div class="text-secondary font-semibold">Read more</div>
-              </div>
-            </a>
-          {/each}
+                <div class="[&_p]:inline [&_p]:w-auto [&_p]:block-none text-[#5c4033] [&_b]:font-light relative z-10 pb-2">
+                  <!-- {@html service.small_description} -->
+                   {@html truncateHtml(service.small_description, 1600)}
+                </div>
+                <div class="text-c5 font-bold relative z-10 pb-2">Read More</div>
+              </a>
+            {/each}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    {/if}
+
+    
+
+       {#if data?.service?.doctors && data?.service?.doctors.length > 0}
+      <DoctorsSlider docData={data?.service?.doctors && data?.service?.doctors} />
+    {/if}
   </div>
 </section>

@@ -1,8 +1,8 @@
 import { error } from "@sveltejs/kit";
 
 export async function load({ params, fetch }) {
-    const Service = params.service;
-    const res = await fetch(`https://admin.karismamc.com/api/servicepage/${Service}`);
+    const Service = params.subservice;
+    const res = await fetch(`https://admin.karismamc.com/api/subservicepage/${Service}`);
     if (!res.ok) {
         throw error(404, 'department not found');
     }

@@ -18,10 +18,10 @@
         />
       </div>
       <div class="space-y-2">
-        <div class="text-secondary font-medium text-3xl">
+        <div class="text-secondary text-center lg:text-left font-bold lg:font-normal text-[25px] lg:text-3xl">
           {data.items.data.section1.title}
         </div>
-        <p class="text-c5 lg:text-xl lg:leading-9 leading-7 max-w-375">
+        <p class="text-c5 lg:text-xl lg:leading-9 leading-7 max-w-375 text-center lg:text-left">
           {@html data.items.data.section1.description}
         </p>
       </div>
@@ -30,10 +30,10 @@
   <div class="max-w-5xl mx-auto px-6">
     <div class="flex md:flex-row items-center flex-col-reverse gap-7 space-y-6">
       <div class="space-y-2">
-        <div class="text-secondary font-medium text-3xl">
+        <div class="text-secondary text-center lg:text-left font-bold lg:font-normal text-[25px] lg:text-3xl">
           {data.items.data.section2.title}
         </div>
-        <p class="text-c5 lg:text-xl lg:leading-9 leading-7 max-w-375">
+        <p class="text-c5 lg:text-xl lg:leading-9 leading-7 max-w-375 text-center lg:text-left">
           {@html data.items.data.section2.description}
         </p>
       </div>

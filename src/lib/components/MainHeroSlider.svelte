@@ -22,9 +22,9 @@
 </script>
 
 <Carousel
-  plugins={[Fade(), Autoplay({ delay: 4000, stopOnInteraction: false })]}
+  plugins={[Fade(), Autoplay({ delay: 3000, stopOnInteraction: false })]}
   opts={{ loop: true }}
-  class="relative w-full mx-auto"
+  class="relative w-full mx-auto h-[50vh] lg:h-screen"
 >
   <CarouselContent>
     {#if items?.banners}
@@ -33,7 +33,7 @@
           <img
             src={slider.desktop_image || "/images/image-placeholder.png"}
             alt={`Slide ${i}`}
-            class="h-100 w-full object-cover brightness-50 md:h-screen"
+            class="h-[50vh] lg:h-screen w-full object-cover brightness-65 md:h-screen topSpacing"
             onerror={(e) => {
               (e.currentTarget as HTMLImageElement).src =
                 "/images/image-placeholder.png";
@@ -45,7 +45,7 @@
   </CarouselContent>
 
   <div
-    class="mt-4 w-full flex justify-between p-10 gap-4 absolute z-50 bottom-0"
+    class=" mt-0 lg:mt-4 w-full flex justify-between p-0 lg:p-10 gap-4 absolute z-1 bottom-3"
   >
     <CarouselPrevious
       class="static translate-y-0 bg-transparent border-0 cursor-pointer"

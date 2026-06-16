@@ -8,7 +8,7 @@
 
 <section class="py-10 bg-primary">
   <div class="mx-auto max-w-7xl px-6 space-y-10">
-    <div class="text-secondary font-seasons text-[34px] text-center capitalize">
+    <div class="text-secondary font-seasons text-[30px] lg:text-[34px] text-center capitalize">
       Our doctors
     </div>
 
@@ -29,7 +29,7 @@
           <CarouselItem class="md:basis-1/2 lg:basis-1/3">
             <a href={`/en/${doctor.link}`}>
               <div
-                class="bg-white group rounded-2xl p-10 space-y-5 rounded-br-none"
+                class="bg-white group rounded-2xl py-10 px-5 lg:p-10  space-y-5 rounded-br-none"
               >
                 <div class="text-secondary text-2xl capitalize">
                   {doctor.name}
