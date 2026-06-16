@@ -103,13 +103,13 @@
               
             </div> -->
             <div
-          class="[&>p]:m-0 [&>ul]:list-none [&>li]:flex [&>li]:items-start [&>li]:gap-3 [&>li]:mb-2 text-c5 text-[16px]/[24px]"
-        >
-          {@html data?.doctor?.qualifications?.items[0].replace(
-            /<li>/g,
-            '<li class="flex gap-2 "><img src="/images/svgviewer-png-output.png" class="w-4 h-4 mt-1 shrink-0 -ml-6" alt="icon" />',
-          )}
-        </div>
+              class="[&>p]:m-0 [&>ul]:list-none [&>li]:flex [&>li]:items-start [&>li]:gap-3 [&>li]:mb-2 text-c5 text-[16px]/[24px]"
+            >
+              {@html data?.doctor?.qualifications?.items[0].replace(
+                /<li>/g,
+                '<li class="flex gap-2 "><img src="/images/svgviewer-png-output.png" class="w-4 h-4 mt-1 shrink-0 -ml-6" alt="icon" />',
+              )}
+            </div>
           </div>
         </div>
 
@@ -189,4 +189,3 @@
     </button>
   </div>
 </section>
-

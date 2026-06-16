@@ -37,6 +37,46 @@ function truncateHtml(html: string | null | undefined, limit: number): string {
 }  
 </script>
 
+<svelte:head>
+  <title>{data?.service?.meta_title || "karisma Medical Center"}</title>
+  <meta
+    name="description"
+    content={data?.service?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+
+  <meta
+    name="keywords"
+    content={data?.service?.meta_keyword ||
+      "beauty clinic, cosmetic clinic, sharjah, karisma medical center"}
+  />
+
+  <meta
+    property="og:title"
+    content={data?.service?.meta_title || "karisma Medical Center"}
+  />
+
+  <meta
+    property="og:description"
+    content={data?.service?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content={data?.service?.meta_title || "karisma Medical Center"}
+  />
+  <meta
+    name="twitter:description"
+    content={data?.service?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+
+  <link rel="canonical" href={data?.service?.canonical_name} />
+
+</svelte:head>
+
 <Navbar />
 <GlobalBanner
   image={data?.service?.banner_image}

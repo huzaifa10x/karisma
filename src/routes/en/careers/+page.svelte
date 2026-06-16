@@ -8,6 +8,45 @@
   const desktop_image = data.careerBanner.banners[0].desktop_image;
 </script>
 
+<svelte:head>
+  <title>{data?.careersMeta?.data?.meta_title || "karisma Medical Center"}</title>
+  <meta
+    name="description"
+    content={data?.careersMeta?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+
+  <meta
+    name="keywords"
+    content={data?.careersMeta?.data?.meta_keyword ||
+      "beauty clinic, cosmetic clinic, sharjah, karisma medical center"}
+  />
+
+  <meta
+    property="og:title"
+    content={data?.careersMeta?.data?.meta_title || "karisma Medical Center"}
+  />
+
+  <meta
+    property="og:description"
+    content={data?.careersMeta?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content={data?.careersMeta?.data?.meta_title || "karisma Medical Center"}
+  />
+  <meta
+    name="twitter:description"
+    content={data?.careersMeta?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+
+  <link rel="canonical" href={data?.careersMeta?.data?.canonical_name} />
+
+</svelte:head>
 <Navbar />
 <GlobalBanner image={data?.careersPage[0]?.bannerImage} text={"Careers"} />
 

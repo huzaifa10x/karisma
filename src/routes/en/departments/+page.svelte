@@ -2,6 +2,7 @@
   import GlobalBanner from "$lib/components/GlobalBanner.svelte";
   import Navbar from "$lib/components/Navbar.svelte";
   import { Check } from "lucide-svelte";
+  // ./$types.ts
 
   let { data } = $props();
 </script>

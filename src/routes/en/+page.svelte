@@ -31,6 +31,7 @@
     content={data?.homeMeta?.data?.meta_description ||
       "Best aesthetic and cosmetic treatments in Sharjah."}
   />
+    <link rel="canonical" href={data?.homeMeta?.data?.page_name} />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta

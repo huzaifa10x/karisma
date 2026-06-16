@@ -25,8 +25,47 @@
 
     return doc.body.innerHTML;
   }
-  console.log( data?.department?.data?.listItems);
 </script>
+
+<svelte:head>
+  <title>{data?.department?.data?.meta_title || "karisma Medical Center"}</title>
+  <meta
+    name="description"
+    content={data?.department?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+
+  <meta
+    name="keywords"
+    content={data?.department?.data?.meta_keyword ||
+      "beauty clinic, cosmetic clinic, sharjah, karisma medical center"}
+  />
+
+  <meta
+    property="og:title"
+    content={data?.department?.data?.meta_title || "karisma Medical Center"}
+  />
+
+  <meta
+    property="og:description"
+    content={data?.department?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content={data?.department?.data?.meta_title || "karisma Medical Center"}
+  />
+  <meta
+    name="twitter:description"
+    content={data?.department?.data?.meta_description ||
+      "Best aesthetic and cosmetic treatments in Sharjah."}
+  />
+
+  <link rel="canonical" href={data?.department?.data?.canonical_name} />
+
+</svelte:head>
 
 <Navbar />
 <GlobalBanner
