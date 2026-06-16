@@ -199,7 +199,7 @@
         {#if mobileMenuOpen}<X size={28} />{:else}<Menu size={28} />{/if}
       </button>
       <a href="/en/"
-        ><img src="/images/logo_main.png" class="w-25" alt="Logo" /></a
+        ><img src={logoSrc} class="w-25" alt="Logo" /></a
       >
 
       <img src="/images/arabIcon.png" alt="Lang" class="w-8" />
