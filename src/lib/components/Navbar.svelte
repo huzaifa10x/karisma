@@ -157,7 +157,7 @@
                     {#each dept.listItems as child}
                       <a
                         href={`/en/${dept.link}/${child.canonical_name}`}
-                        class="flex items-center gap-4 rounded-lg px-4 py-2 relative group/two duration-300 text-black/40 uppercase font-semibold hover:text-primary"
+                        class="flex items-center gap-4 rounded-lg px-4 py-2 relative group/two duration-300 text-black/40 uppercase font-semibold hover:text-[#c39a51]"
                       >
                         <span
                           class="h-1.5 w-1.5 -ml-4 -left-10 opacity-0 group-hover/two:left-1 group-hover/two:opacity-100 duration-300 rounded-full bg-c5"
