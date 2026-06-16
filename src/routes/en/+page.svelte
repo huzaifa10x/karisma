@@ -4,7 +4,13 @@
   import AboutWhyChoose from "$lib/components/home/AboutWhyChoose.svelte";
   import Services from "$lib/components/home/Services.svelte";
   import OurDoctors from "$lib/components/home/OurDoctors.svelte";
+  import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
   let { data } = $props();
+  
+    onMount(() => {
+        goto('/en/', { replaceState: true });
+    });
 </script>
 
 <svelte:head>
@@ -25,6 +31,7 @@
     property="og:title"
     content={data?.homeMeta?.data?.meta_title || "karisma Medical Center"}
   />
+  <link rel="canonical" href={data?.homeMeta?.data?.page_name} />
 
   <meta
     property="og:description"
