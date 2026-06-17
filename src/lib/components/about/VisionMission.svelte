@@ -3,7 +3,7 @@
 </script>
 
 <section class="bg-primary py-10 space-y-8">
-  <div class="max-w-5xl mx-auto px-6">
+  <div class="md:w-5xl lg:w-7xl mx-auto px-6">
     <div class="lg:flex items-center gap-7 space-y-6">
       <div>
         <img

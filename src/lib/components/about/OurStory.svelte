@@ -3,7 +3,7 @@
 </script>
 
 <section class="bg-primary py-10 space-y-8">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="md:w-5xl lg:w-7xl mx-auto px-6">
     <div class="text-center text-secondary font-seasons text-[22px] lg:text-[35px] mb-6">
       Our Story
     </div>

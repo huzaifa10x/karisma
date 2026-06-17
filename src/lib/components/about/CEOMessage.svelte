@@ -3,11 +3,11 @@
 </script>
 
 <section class="bg-primary py-10 space-y-8 px-0 lg:px-6">
-  <div class="max-w-5xl mx-auto px-6 bg-[#d1bb9f] rounded-xl">
+  <div class="md:w-5xl lg:w-7xl mx-auto px-6 bg-[#d1bb9f] rounded-xl">
     <div class="lg:flex items-center gap-7 py-6 space-y-6">
       <div class="flex justify-center item-center">
         <img
-          class="rounded-xl md:w-auto md:h-100 md:object-cover lg:h-auto"
+          class="md:w-auto md:h-100 md:object-cover lg:object-contain lg:h-110"
           src={data.items.data.ceo_image || "/images/image-placeholder.png"}
           alt=""
           onerror={(e) => {

@@ -9,7 +9,7 @@
   class="fixed right-4 bottom-12 md:-bottom-10 lg:bottom-0 flex -translate-y-1/5 flex-col items-center gap-6 z-50"
 >
   <div
-    class="hidden mb-5 md:flex lg:flex gap-0 flex-col h-51 items-center border-2 border-[#808080] rounded shadow-gray-800 shadow-xl/100 bg-secondary-foreground"
+    class="hidden mb-5 md:flex lg:flex gap-0 flex-col h-51 items-center border-2 border-[#808080] rounded shadow-gray-800 shadow-[4px_0_16px_-2px_rgba(0,0,0,0.1)]  bg-secondary-foreground"
   >
     <img
       src="/images/logo_main-3-DN-IBBiu.png"
@@ -19,7 +19,7 @@
 
     <div class="mt-2 mb-5">
       <span
-        class="block text-white font-bold tracking-[1px] uppercase text-[18px]"
+        class="block text-white font-bold tracking-[0px] uppercase text-[18px]"
         style="writing-mode: vertical-rl; transform: rotate(180deg);"
       >
         Appointment
