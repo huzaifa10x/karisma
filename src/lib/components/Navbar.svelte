@@ -132,7 +132,7 @@
               {#each data.departmentPage?.slice(1) || [] as dept}
                 <div class="group relative">
                   <a
-                    href={"/en/" + dept.link}
+                    href={"/en/departments/" + dept.link}
                     class="flex items-center justify- gap-4 rounded-lg px-4 py-2 relative group/two duration-300 text-black/40 uppercase font-semibold lg:hover:text-[#c39a51]"
                   >
                     <span
@@ -156,7 +156,7 @@
                   >
                     {#each dept.listItems as child}
                       <a
-                        href={`/en/${dept.link}/${child.canonical_name}`}
+                        href={`/en/departments/${dept.link}/${child.canonical_name}`}
                         class="flex items-center gap-4 rounded-lg px-4 py-2 relative group/two duration-300 text-black/40 uppercase font-semibold hover:text-[#c39a51]"
                       >
                         <span
