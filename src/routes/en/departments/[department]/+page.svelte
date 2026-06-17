@@ -73,19 +73,18 @@
   text={data?.department?.data?.department_name}
 />
 
-<section class="bg-primary">
-  <div class="">
-    <div class="bg-[#c4a98863] py-10">
-      <div class="mx-auto max-w-375 px-6">
-        <div class="grid md:grid-cols-2 gap-10">
+<section class="bg-primary ">
+    <div class="bg-[#c4a98863] py-10 md:px-20">
+      <div class="mx-auto lg:max-w-375 px-6">
+        <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
             <img
-              class="w-full"
+              class="md:w-2/4 lg:w-full object-cover"
               src={data?.department?.data?.department_image}
               alt=""
             />
           </div>
-          <div class="space-y-3">
+          <div class="space-y-3 md:w-full lg:w-2/4">
             <h1
               class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px] font-seasons"
             >
@@ -105,7 +104,7 @@
     <section class="">
       {#each data?.department?.data?.sections as sections, index}
         <div
-          class={`p-8 rounded-xl ${
+          class={`p-8 md:px-20 ${
             index % 2 === 0 ? "bg-primary" : "bg-[#c4a98863]"
           }`}
         >
@@ -118,7 +117,7 @@
           </div>
 
           <div
-            class=" lg:space-y-3 lg:text-[20px]/[30px] text-[16px]/[24px]
+            class=" lg:space-y-3 text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px] [&_p]:pt-3
             font-light
             [&_b]:font-semibold [&_li_b]:font-semibold
             text-c5
@@ -136,11 +135,11 @@
     <!-- Related Services -->
      {#if data?.department?.data?.listItems && data.department.data.listItems.length > 0}
     <section class="py-10 space-y-4 bg-[#D1BB9F]">
-      <div class="space-y-15 mx-auto max-w-375 px-6">
+      <div class="space-y-15 mx-auto max-w-375 md:px-20 px-6">
         <h2 class="text-[26px]/[34px] font-bold text-[#405d53] font-seasons">
           Related Services
         </h2>
-        <div class="grid md:grid-cols-3 gap-7 bg-[#D1BB9F]">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7 bg-[#D1BB9F]">
           {#each data?.department?.data?.listItems as service}
             <a
               href={`${data?.department?.data?.canonical_name}/${service?.canonical_name}`}
@@ -148,13 +147,16 @@
               <div
                 class="rounded-2xl overflow-hidden shadow-[0_0_13px_#06060659] relative bg-[#D1BB9F]"
               >
+              <div class="md:h-70 lg:h-100">
+                
                 <img
-                  src={service?.service_image ??
+                src={service?.service_image ??
                     "/images/image-placeholder.png"}
-                  class="w-full"
+                  class="w-full h-full object-cover"
                   alt=""
-                />
-                <div class="p-6 absolute z-20 bottom-0 bg-primary w-full">
+                  />
+                </div>
+                <div class="md:p-3 lg:p-6 absolute z-20 bottom-0 bg-primary w-full">
                   <div class="text-[#405d53] text-[22px]/[33px] font-[serif]">
                     {service?.service_name}
                   </div>
@@ -173,5 +175,4 @@
     {#if data?.department?.data?.doctors && data.department.data.doctors.length > 0}
       <DoctorsSlider docData={data?.department?.data?.doctors} />
     {/if}
-  </div>
 </section>

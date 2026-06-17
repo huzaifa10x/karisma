@@ -85,13 +85,13 @@ function truncateHtml(html: string | null | undefined, limit: number): string {
 
 <section class="bg-primary">
   <div class="">
-    <div class="bg-[#c4a98863] py-10">
+    <div class="bg-[#c4a98863] py-10 md:px-20">
       <div class="mx-auto max-w-375 px-3 lg:px-6">
-        <div class="grid md:grid-cols-2 gap-10">
+        <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
-            <img class="w-full" src={data?.service?.service_image} alt="" />
+            <img class="md:w-2/4 lg:w-full" src={data?.service?.service_image} alt="" />
           </div>
-          <div class="space-y-3">
+          <div class="space-y-3 md:w-full lg:w-2/4">
             <h1
               class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px]  font-seasons"
             >
@@ -110,7 +110,7 @@ function truncateHtml(html: string | null | undefined, limit: number): string {
     <section class="">
       {#each data?.service?.servicesections as sections, index}
         <div
-          class={`p-4 lg:pl-8 lg:px-8 rounded-xl ${
+          class={`p-4 md:px-20 lg:pl-8 lg:px-8 rounded-xl ${
             index % 2 === 0 ? "bg-primary" : "bg-[#c4a98863]"
           }`}
         >
@@ -120,7 +120,7 @@ function truncateHtml(html: string | null | undefined, limit: number): string {
             {sections?.section_title}
           </h2>
           <div
-            class="space-y-2 lg:text-[20px]/[30px] md:text-[17px]/[26px] font-light [&_b]:font-semibold [&_li_b]:font-semibold text-c5 [&_ul]:space-y-1 [&_ul]:pl-6 mx-auto
+            class="space-y-2 text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px] font-light [&_b]:font-semibold [&_li_b]:font-semibold text-c5 [&_ul]:space-y-1 [&_ul]:pl-6 mx-auto
             max-w-375 px-2 lg:px-6 [&_h4]:text-[22px] lg:[&_h4]:text-[26px]/[34px] [&_h4]:text-[#405d53] [&_h4]:font-bold [&_h4]:font-[seasons]"
           >
             <!-- {@html addCheckToBold(sections?.section_description)} -->
@@ -132,8 +132,8 @@ function truncateHtml(html: string | null | undefined, limit: number): string {
 
     {#if data?.service?.subservices && data?.service?.subservices.length > 0}
       <section class="py-10 bg-[#c4a98863]">
-        <div class="space-y-15 mx-auto max-w-350 px-4">
-          <div class="grid md:grid-cols-3 gap-9">
+        <div class="space-y-15 mx-auto max-w-350 px-4 md:px-20">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-9">
             {#each data?.service?.subservices as service}
               <a
                 href={`${data.service.canonical_name}/${service.canonical_name}`}

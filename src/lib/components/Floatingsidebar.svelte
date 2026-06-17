@@ -6,10 +6,10 @@
 
 
 <aside
-  class="fixed right-4 bottom-12 lg:bottom-0 flex -translate-y-1/5 flex-col items-center gap-6 z-50"
+  class="fixed right-4 bottom-12 md:-bottom-10 lg:bottom-0 flex -translate-y-1/5 flex-col items-center gap-6 z-50"
 >
   <div
-    class="hidden mb-5 lg:flex gap-0 flex-col h-51 items-center border-2 border-[#808080] rounded shadow-gray-800 shadow-xl/100 bg-secondary-foreground"
+    class="hidden mb-5 md:flex lg:flex gap-0 flex-col h-51 items-center border-2 border-[#808080] rounded shadow-gray-800 shadow-xl/100 bg-secondary-foreground"
   >
     <img
       src="/images/logo_main-3-DN-IBBiu.png"
@@ -156,7 +156,7 @@
   </div>
 </aside>
   <div
-    class="lg:hidden gap-5 z-30 py-1.5 flex fixed bottom-0 justify-center items-center border-2 border-[#808080]  bg-secondary-foreground w-full"
+    class="lg:hidden md:hidden gap-5 z-30 py-1.5 flex fixed bottom-0 justify-center items-center border-2 border-[#808080]  bg-secondary-foreground w-full"
   >
     <img
       src="/images/logo_main-3-DN-IBBiu.png"

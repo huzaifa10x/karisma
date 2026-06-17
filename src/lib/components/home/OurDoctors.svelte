@@ -26,7 +26,7 @@
     >
       <CarouselContent>
         {#each items.doctors.slice(1) as doctor}
-          <CarouselItem class="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem class="md:basis-1/3 lg:basis-1/3">
             <a href={`/en/${doctor.link}`}>
               <div
                 class="bg-white group rounded-2xl py-10 px-5 lg:p-10  space-y-5 rounded-br-none"

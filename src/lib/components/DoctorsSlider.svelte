@@ -7,7 +7,7 @@
   const plugins = [Autoplay({ delay: 3000, stopOnInteraction: false })];
 </script>
 
-<section class="py-10 space-y-4 block lg:hidden ">
+<section class="py-10 space-y-4 block lg:hidden md:hidden">
   <div class="space-y-3 mx-auto max-w-7xl px-6"> <h2 class="text-[26px] font-bold text-[#405d53] font-seasons">Our Doctors</h2>
       <p class="text-c5 text-[20px]">
             Meet our team of experts, dedicated to crafting smiles that define
@@ -43,16 +43,16 @@
   </div>
 </section>
 
- <section class="py-10 space-y-4 hidden lg:block">
-        <div class="space-y-3 mx-auto max-w-375 px-6">
+ <section class="py-10 space-y-4 hidden md:block lg:block">
+        <div class="space-y-3 mx-auto max-w-375 px-6 md:px-20 ">
           <h2 class="text-[26px] font-bold text-[#405d53] font-seasons">
             Our Doctors
           </h2>
-          <p class="text-c5 text-[20px]">
+          <p class="text-c5 text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px]">
             Meet our team of experts, dedicated to crafting smiles that define
             sophistication and excellence.
           </p>
-          <div class="grid md:grid-cols-4 gap-4">
+          <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-fr h-full">
             {#each docData as dept}
               <a href={`/en/doctor/${dept?.canonical_name}`}>
                 <div
@@ -69,13 +69,14 @@
                     <div
                       class="w-full h-full scale-0 group-hover:scale-100 duration-500 bg-secondary-foreground/50 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
                     ></div>
-                    <img
-                      class="w-full object-cover rounded-2xl rounded-br-none"
+                    
+                      <img
+                      class="w-full object-cover rounded-2xl rounded-br-none h-full"
                       src={"https://admin.karismamc.com/public/storage/" +
                         dept?.photo || "/images/image-placeholder.png"}
                       alt=""
                       
-                    />
+                      />
                   </div>
                   <div class="text-secondary font-semibold">Read more</div>
                 </div>

@@ -225,7 +225,12 @@
             class="flex gap-3 w-full items-center text-[16px]"
             onclick={() => (mobileDepartmentsOpen = !mobileDepartmentsOpen)}
           >
-            Departments <Play
+           <a
+              href="/en/departments"
+              class=""
+            >
+              Departments
+            </a> <Play
               style="fill:#405D53"
               size={16}
               class={mobileDepartmentsOpen ? "rotate-90" : ""}
@@ -243,7 +248,7 @@
                     onclick={() => toggleSubmenu(dept.title)}
                     class="flex items-center gap-3 py-2 text-[#405d53]"
                   >
-                    <a href={`/en/${dept.link}`}>
+                    <a href={`/en/departments/${dept.link}`}>
                       {dept.title}
                     </a>
                     {#if dept.listItems && dept.listItems.length > 0}
@@ -261,7 +266,7 @@
                     <div transition:slide class="flex flex-col ml-4 pl-2">
                       {#each dept.listItems as child}
                         <a
-                          href={`/en/${dept.link}/${child.canonical_name}`}
+                          href={`/en/departments/${dept.link}/${child.canonical_name}`}
                           onclick={toggleMobileMenu}
                           class="py-2 text-md text-[#405d53]"
                         >

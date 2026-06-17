@@ -14,13 +14,13 @@
 />
 <section class="py-20 bg-primary">
   <div class="mx-auto max-w-375 px-6">
-    <div class="grid grid-cols-4 gap-5">
+    <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-5">
       {#each data.departmentsPage.departmentPage.slice(1) as Department}
         <div class="md:basis-1/2 lg:basis-1/3">
           <a href={Department.link}>
             <div class="group relative overflow-hidden">
               <img
-                class="w-full object-cover h-112.5 brightness-50 rounded-br-none"
+                class="w-full object-cover md:h-80 lg:h-112.5 brightness-50 rounded-br-none"
                 src={Department.imageUrl || "/images/image-placeholder.png"}
                 onerror={(e) => {
                   (e.currentTarget as HTMLImageElement).src =
@@ -42,9 +42,9 @@
                 >
                   {Department.title}
                 </div>
-                <ul class="space-y-5">
+                <ul class="md:space-y-1 lg:space-y-5">
                   {#each Department.listItems as items}
-                    <li class="px-10 flex items-center gap-2">
+                    <li class="px-10 flex items-center md:gap-0 lg:gap-2">
                       <Check />
                       {items.service_name}
                     </li>

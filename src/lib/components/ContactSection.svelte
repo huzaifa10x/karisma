@@ -89,10 +89,10 @@
       </div>
 
       <div
-        class="rounded-3xl rounded-br-none bg-[#F4F7F8] p-8 shadow-sm md:p-12"
+        class="rounded-3xl rounded-br-none bg-[#F4F7F8] p-8 shadow-sm md:p-10"
       >
-        <div class="flex flex-wrap gap-5 lg:gap-10">
-          <label class="flex cursor-pointer items-center w-full lg:w-auto gap-2 text-secondary">
+        <div class="flex flex-wrap gap-5 md:gap-0 lg:gap-10">
+          <label class="flex cursor-pointer items-center w-full md:w-2/4 lg:w-auto gap-2 text-secondary">
             <input
               type="radio"
               bind:group={formType}
@@ -101,7 +101,7 @@
             />
             <span class="font-bold lg:font-medium">Enquiry</span>
           </label>
-          <label class="flex cursor-pointer items-center w-full lg:w-auto gap-2 text-secondary">
+          <label class="flex cursor-pointer items-center w-full md:w-2/4 lg:w-auto gap-2 text-secondary">
             <input
               type="radio"
               bind:group={formType}
@@ -171,7 +171,7 @@
       </div>
     </div>
 
-    <div class="mt-24 grid grid-cols-1 gap-6 md:grid-cols-3">
+    <div class="mt-24 grid grid-cols-1 gap-6 lg:grid-cols-3">
       {#each contactInfo as item}
         <a
           href={item.href}

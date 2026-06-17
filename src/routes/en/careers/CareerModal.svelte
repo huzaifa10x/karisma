@@ -15,11 +15,6 @@
         return Object.keys(newErrors).length === 0;
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        if (validate()) console.log("Form Submitted", formData);
-    }
-
     let loading = $state(false);
 </script>
 
@@ -27,7 +22,7 @@
     <div
         class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
     >
-        <div class="w-full max-w-7xl rounded-lg bg-white p-6 shadow-xl">
+        <div class="w-full lg:w-7xl rounded-lg bg-white p-6 shadow-xl">
             <div class="flex justify-between items-center mb-4 border-b-2">
                 <h2 class="text-[30px]/[45px] font-normal font-cabinet-grotesk">
                     Apply Now
@@ -37,7 +32,7 @@
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
                 <!-- Image Section -->
 
-                <div class="md:col-span-4 bg-gray-200 rounded hidden lg:block">
+                <div class="md:col-span-4 bg-gray-200 rounded hidden md:block lg:block">
                     <img
                         src={desktop_image || "/images/image-placeholder.png"}
                         alt="Join Team"
