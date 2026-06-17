@@ -63,7 +63,7 @@
 
     <a
       href="tel:+123456789"
-      class="flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg hover:scale-105 transition-transform bg-secondary-foreground"
+      class="flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg hover:scale-105 transition-transform bg-[#405d53]"
     >
       <!-- <Phone size={26} /> -->
       <svg
@@ -98,7 +98,7 @@
 
     <a
       href="https://instagram.com/yourprofile"
-      class="flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg hover:scale-105 transition-transform bg-secondary-foreground"
+      class="flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg hover:scale-105 transition-transform bg-[#405d53]"
     >
       <!-- <Instagram size={26} /> -->
       <svg
@@ -113,20 +113,8 @@
               id="_03.Instagram"
               data-name="03.Instagram"
               transform="translate(0 0)"
-              ><rect
-                id="Background"
-                width="68"
-                height="68"
-                rx="34"
-                transform="translate(-0.038 -0.029)"
-                fill="#405d53"
-              ></rect><g id="Group_21885" data-name="Group 21885"
-                ><path
-                  id="Shade"
-                  d="M59.86,11.683A121.751,121.751,0,0,1,39.042,39.047a121.913,121.913,0,0,1-27.351,20.8q-.858-.746-1.667-1.555A34.147,34.147,0,1,1,58.308,10q.8.814,1.551,1.684Z"
-                  transform="translate(-0.016 0)"
-                  opacity="0.1"
-                ></path><g id="Icon" transform="translate(16.169 16.176)"
+              ><g id="Group_21885" data-name="Group 21885"
+                ><g id="Icon" transform="translate(16.169 16.176)"
                   ><path
                     id="Path_11177"
                     data-name="Path 11177"
