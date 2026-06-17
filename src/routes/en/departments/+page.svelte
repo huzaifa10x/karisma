@@ -17,7 +17,7 @@
     <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-5">
       {#each data.departmentsPage.departmentPage.slice(1) as Department}
         <div class="md:basis-1/2 lg:basis-1/3">
-          <a href={Department.link}>
+          <a   href={"/en/departments/" + Department.link}>
             <div class="group relative overflow-hidden">
               <img
                 class="w-full object-cover md:h-80 lg:h-112.5 brightness-50 rounded-br-none"
