@@ -84,7 +84,7 @@
               alt=""
             />
           </div>
-          <div class="space-y-3 md:w-full lg:w-2/4">
+          <div class="space-y-3 md:w-full lg:w-full">
             <h1
               class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px] font-seasons"
             >

@@ -152,7 +152,7 @@
                   <!-- Submenu -->
                   {#if dept.listItems && dept.listItems.length > 0}
                   <div
-                    class="invisible absolute left-full -top-3.5 ml-2 w-56 rounded-bl-2xl border border-white/10 bg-white p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100"
+                    class="invisible absolute left-full -top-2.5 ml-2 w-56 rounded-bl-2xl border border-white/10 bg-white p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100"
                   >
                     {#each dept.listItems as child}
                       <a

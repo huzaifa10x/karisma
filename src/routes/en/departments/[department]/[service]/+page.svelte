@@ -91,7 +91,7 @@ function truncateHtml(html: string | null | undefined, limit: number): string {
           <div>
             <img class="md:w-2/4 lg:w-full" src={data?.service?.service_image} alt="" />
           </div>
-          <div class="space-y-3 md:w-full lg:w-2/4">
+          <div class="space-y-3 md:w-full lg:w-full">
             <h1
               class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px]  font-seasons"
             >
