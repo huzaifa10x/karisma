@@ -24,8 +24,10 @@
     <div>
       {@html data?.policy?.description}
     </div>
+    {#if data?.policy?.more_details && data?.policy?.more_details != null}
     <div class="[&_ul]:ml-6 [&_ul]:my-6">
       {@html addCheckToBold(data?.policy?.more_details)}
     </div>
+    {/if}
   </div>
 </section>

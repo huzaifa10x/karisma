@@ -16,7 +16,11 @@
     const lastSegment = segments[segments.length - 1];
 
     // Format the label (Capitalize first letter, replace hyphens with spaces)
-    const label = lastSegment.charAt(0).toUpperCase() + lastSegment.replace(/-/g, " ").slice(1);
+    // const label = lastSegment.charAt(0).toUpperCase() + lastSegment.replace(/-/g, " ").slice(1);
+    const label = lastSegment
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
 
     return [
       { label: "Home", href: "/en/" },
