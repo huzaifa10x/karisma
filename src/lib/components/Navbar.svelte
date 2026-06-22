@@ -186,7 +186,7 @@
     <div class="hidden items-center gap-6 lg:flex">
       <a
         href="tel:+97165068777"
-        class="text-white space-x-5 font-semibold hover:text-[#c9a45c]"
+        class="text-white space-x-5 font-semibold"
       >
         <PhoneForwardedIcon style="fill:#fff;" class="inline" size={18} /> +971 6 506 8777
         
