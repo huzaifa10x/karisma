@@ -247,23 +247,23 @@
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/dental">Dental</a>
+          <a href="/en/departments/dental">Dental</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/derma">Derma</a>
+          <a href="/en/departments/derma">Derma</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/laser-hair-removal">Laser Hair Removal</a>
+          <a href="/en/departments/laser-hair-removal">Laser Hair Removal</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/skincare">Skincare</a>
+          <a href="/en/departments/skincare">Skincare</a>
         </li>
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
-          <a href="/en/plastic-surgery">Plastic Surgery</a>
+          <a href="/en/departments/plastic-surgery">Plastic Surgery</a>
         </li>
       </ul>
     </div>

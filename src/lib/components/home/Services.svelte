@@ -30,7 +30,7 @@
       <CarouselContent>
         {#each items.banners as service}
           <CarouselItem class=" md:basis-1/3 lg:basis-1/3">
-            <a href={`/en/${service.link}`}>
+            <a href={`/en/departments/${service.link}`}>
               <div
                 class="bg-white group rounded-2xl py-10 px-5 lg:p-10 flex justify-between h-107.5 flex-col rounded-br-none"
               >
