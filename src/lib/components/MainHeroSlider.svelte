@@ -24,7 +24,7 @@
 <Carousel
   plugins={[Fade(), Autoplay({ delay: 3000, stopOnInteraction: false })]}
   opts={{ loop: true }}
-  class="relative w-full mx-auto h-[50vh] md:h-[70vh] lg:h-[100vh] overflow-hidden"
+  class="relative w-full mx-auto h-[50vh]  lg:h-[70vh] overflow-hidden"
 >
   <CarouselContent>
     {#if items?.banners}
