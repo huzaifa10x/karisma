@@ -5,11 +5,16 @@
 
   let { data } = $props();
 
-  function processHtml(html: string | null | undefined): string {
-    if (!html || typeof window === "undefined") return html ?? "";
+function processHtml(html: string | null | undefined): string {
+  // Handle empty or server-side rendering cases
+  if (!html || typeof window === 'undefined') return html ?? "";
 
+  try {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
+
+    // Check if the parser failed to return a document
+    if (!doc) throw new Error("DOMParser failed to return a document.");
 
     doc.querySelectorAll("li").forEach((li) => {
       const isNested = li.parentElement?.closest("li") !== null;
@@ -24,7 +29,14 @@
     });
 
     return doc.body.innerHTML;
+  } catch (error) {
+    // Log the error for debugging
+    console.error("Error processing HTML in processHtml:", error);
+    
+    // Return the original HTML as a fallback so the page doesn't break
+    return html;
   }
+}
 </script>
 
 <svelte:head>
