@@ -130,7 +130,7 @@ function truncateHtml(html: string | null | undefined, limit: number): string {
           >
             {sections?.section_title}
           </h2>
-           <div
+           <!-- <div
             class=" lg:space-y-3 text-[16px] lg:text-[18px]/[28px] 
             font-light
             [&_b]:font-semibold [&_li_b]:font-semibold
@@ -139,9 +139,28 @@ function truncateHtml(html: string | null | undefined, limit: number): string {
             mx-auto 
         [&_h4]:text-[22px] lg:[&_h4]:text-[26px]/[34px] [&_h4]:text-[#405d53] [&_h4]:font-bold [&_h4]:font-[seasons]"
           >
-            <!-- {@html addCheckToBold(sections?.section_description)} -->
              {@html processHtml(sections?.section_description)}
-          </div>
+          </div> -->
+     <div
+  class="lg:space-y-3 text-[16px] lg:text-[18px]/[28px] font-light 
+  [&_b]:font-semibold [&_li_b]:font-semibold text-c5 mx-auto 
+  [&_h4]:text-[22px] lg:[&_h4]:text-[26px]/[34px] [&_h4]:text-[#405d53] [&_h4]:font-bold [&_h4]:font-[seasons]
+  
+  /* Updated Bullet Point Logic */
+  
+  [&_ul]:pl-0 [&_ul]:list-none [&_li]:relative [&_li]:pl-7 [&_li]:mb-2
+  
+  /* Checkmark styling - Added font-size-[14px] for the icon specifically */
+
+  [&_li::before]:content-['✓'] [&_li::before]:text-[#008000] [&_li::before]:font-bold 
+  [&_li::before]:absolute [&_li::before]:left-0 [&_li::before]:text-[14px]
+  
+  /* Nested List styling - Added font-size-[14px] for the icon specifically */
+
+  [&_li_ul_li::before]:content-['−'] [&_li_ul_li::before]:text-[14px]"
+>
+  {@html sections?.section_description}
+</div>
         </div>
       {/each}
     </section>
@@ -165,7 +184,6 @@ function truncateHtml(html: string | null | undefined, limit: number): string {
                   {service.sub_service_name}
                 </div>
                 <div class="[&_p]:inline [&_p]:w-auto [&_p]:block-none text-[#5c4033] [&_b]:font-normal font-normal relative z-10 pb-2">
-                  <!-- {@html service.small_description} -->
                    {@html truncateHtml(service.small_description, 1600)}
                 </div>
                 <div class="text-c5 font-bold relative z-10 pb-2">Read More</div>
