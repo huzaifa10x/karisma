@@ -60,8 +60,8 @@
     {/if}
 
     <div class="flex flex-wrap gap-4 lg:gap-4 my-10">
+      {#if service.section2_title}
       <div class="bg-[#c4a98863] w-full lg:w-[48%] p-5 rounded border border-[#ccc]">
-        {#if service.section2_title}
           <h2
             class="text-[#405d53] font-normal text-[22px] lg:text-[30px]/[39px]"
           >
@@ -72,11 +72,11 @@
           >
             {@html processHtml(service.section2_description)}
           </div>
+        </div>
         {/if}
-      </div>
 
-      <div class="bg-[#c4a98863] w-full lg:w-[48%] p-5 rounded border border-[#ccc]">
         {#if service.section3_title}
+      <div class="bg-[#c4a98863] w-full lg:w-[48%] p-5 rounded border border-[#ccc]">
           <h2
             class="text-[#405d53] font-normal text-[22px] lg:text-[30px]/[39px]"
           >
@@ -87,8 +87,8 @@
           >
             {@html processHtml(service.section3_description)}
           </div>
+        </div>
         {/if}
-      </div>
     </div>
     {#if service.section4_title}
       <h2
