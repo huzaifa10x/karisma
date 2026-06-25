@@ -44,7 +44,7 @@
   </div>
 </section>
 
- <section class="py-10 space-y-4 hidden lg:block">
+ <section class="py-10 space-y-4 hidden lg:px-15 lg:block">
         <div class="space-y-3 mx-auto max-w-375 px-6 lg:px-0 ">
           <h2 class="text-[26px] font-bold text-[#577065] font-seasons">
             Our Doctors
