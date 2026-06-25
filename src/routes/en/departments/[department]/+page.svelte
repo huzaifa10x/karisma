@@ -74,7 +74,7 @@
 />
 
 <section class="bg-primary ">
-    <div class="bg-[#c4a98863] py-10 md:px-20">
+    <div class="bg-[#c4a98863] py-10 lg:px-10">
       <div class="mx-auto lg:max-w-375 px-6">
         <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
@@ -91,7 +91,7 @@
               {data?.department?.data?.department_name}
             </h1>
             <div
-              class="text-c5 space-y-5 [&>b]:font-semibold text-[16px]/[24px] lg:text-[20px]/[30px]"
+              class="text-c5 space-y-5 font-light [&_b]:font-semibold text-[16px]/[24px] lg:text-[18px]/[28px]"
             >
               {@html data?.department?.data?.department_description}
             </div>
@@ -104,11 +104,11 @@
     <section class="">
       {#each data?.department?.data?.sections as sections, index}
         <div
-          class={`p-8 md:px-20 ${
+          class={`p-8 lg:px-10 ${
             index % 2 === 0 ? "bg-primary" : "bg-[#c4a98863]"
           }`}
         >
-          <div class="lg:mx-auto lg:max-w-375 px-0 lg:px-6">
+          <div class="lg:mx-auto lg:max-w-375 px-0 lg:px-2">
             <h2
               class="text-[22px] lg:text-[26px]/[34px] font-bold text-[#405d53] font-seasons mb-3"
             >
@@ -117,12 +117,12 @@
           </div>
 
           <div
-            class=" lg:space-y-3 text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px] [&_p]:pt-3
+            class=" lg:space-y-3 text-[16px] lg:text-[18px]/[28px] 
             font-light
             [&_b]:font-semibold [&_li_b]:font-semibold
             text-c5
             [&_ul]:space-y-1 [&_ul]:pl-6
-            mx-auto lg:max-w-375 lg:px-6
+            mx-auto 
         [&_h4]:text-[22px] lg:[&_h4]:text-[26px]/[34px] [&_h4]:text-[#405d53] [&_h4]:font-bold [&_h4]:font-[seasons]"
           >
             <!-- Process each section description individually -->
@@ -135,38 +135,33 @@
     <!-- Related Services -->
      {#if data?.department?.data?.listItems && data.department.data.listItems.length > 0}
     <section class="py-10 space-y-4 bg-[#D1BB9F]">
-      <div class="space-y-15 mx-auto max-w-375 md:px-20 px-6">
-        <h2 class="text-[26px]/[34px] font-bold text-[#405d53] font-seasons">
+      <div class="space-y-5 mx-auto max-w-375 lg:px-10">
+        <h2 class="text-[26px]/[34px] font-bold text-[#577065] font-seasons">
           Related Services
         </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7 bg-[#D1BB9F]">
-          {#each data?.department?.data?.listItems as service}
-            <a
-              href={`${data?.department?.data?.canonical_name}/${service?.canonical_name}`}
-            >
-              <div
-                class="rounded-2xl overflow-hidden shadow-[0_0_13px_#06060659] relative bg-[#D1BB9F]"
-              >
-              <div class="md:h-70 lg:h-100">
-                
-                <img
-                src={service?.service_image ??
-                    "/images/image-placeholder.png"}
-                  class="w-full h-full object-cover"
-                  alt=""
-                  />
-                </div>
-                <div class="md:p-3 lg:p-6 absolute z-20 bottom-0 bg-primary w-full">
-                  <div class="text-[#405d53] text-[22px]/[33px] font-[serif]">
-                    {service?.service_name}
-                  </div>
-                  <span class="text-c5 font-semibold capitalize">Read more</span
-                  >
-                </div>
-              </div>
-            </a>
-          {/each}
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7 w-[95%] bg-[#D1BB9F]">
+  {#each data?.department?.data?.listItems as service}
+    <a href={`${data?.department?.data?.canonical_name}/${service?.canonical_name}`}>
+      <div class="rounded-2xl overflow-hidden shadow-[0_0_13px_#06060659] relative bg-[#D1BB9F] ">
+        
+        <div class="h-70 lg:h-100 overflow-hidden">
+          <img
+            src={service?.service_image ?? "/images/image-placeholder.png"}
+            class="w-full  object-center object-cover transition-transform duration-500 ease-in-out hover:scale-110 "
+            alt={service?.service_name}
+          />
         </div>
+
+        <div class="md:p-3 lg:p-6 absolute z-20 bottom-0 bg-primary w-full">
+          <div class="text-[#577065] text-[22px]/[33px] font-[serif]">
+            {service?.service_name}
+          </div>
+          <span class="text-c5 font-semibold capitalize">Read more</span>
+        </div>
+      </div>
+    </a>
+  {/each}
+</div>
       </div>
     </section>
     {/if}

@@ -1,7 +1,9 @@
 <footer
   class="w-full bg-primary px-6 py-12 text-c5 lg:px-20 font-cabinet-grotesk"
 >
-  <div class="mx-auto mb-12 h-px w-full max-w-4xl bg-black/50"></div>
+ <div class="flex w-full justify-center pt-2.5 mb-10">
+  <hr class="w-[55%] h-0.5 border-0 bg-black/25" />
+</div>
   <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-5">
     <div class="flex flex-col gap-6 col-span-2">
       <img src="/images/greemlogo_main.png" alt="Karisma Logo" class="w-32" />
@@ -243,7 +245,7 @@
     </div>
 
     <div>
-      <h3 class="mb-6 text-3xl text-secondary font-seasons">Departments</h3>
+      <h3 class="mb-6 text-3xl text-[#577065] font-seasons">Departments</h3>
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
@@ -270,7 +272,7 @@
 
     <!-- About Us -->
     <div>
-      <h3 class="mb-6 text-3xl text-secondary font-seasons">About Us</h3>
+      <h3 class="mb-6 text-3xl text-[#577065] font-seasons">About Us</h3>
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>
@@ -293,7 +295,7 @@
 
     <!-- Information -->
     <div>
-      <h3 class="mb-6 text-3xl text-secondary font-seasons">Information</h3>
+      <h3 class="mb-6 text-3xl text-[#577065] font-seasons">Information</h3>
       <ul class="space-y-3">
         <li class="flex items-center gap-2">
           <span class="h-1 w-1 rounded-full bg-[#4a4a4a]"></span>

@@ -20,9 +20,9 @@
 
 {#if isOpen}
     <div
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 overflow-y-hidden "
     >
-        <div class="w-full lg:w-7xl rounded-lg bg-white p-6 shadow-xl">
+        <div class="w-full lg:w-295 rounded-lg bg-white p-6 shadow-xl">
             <div class="flex justify-between items-center mb-4 border-b-2">
                 <h2 class="text-[30px]/[45px] font-normal font-cabinet-grotesk">
                     Apply Now
@@ -95,17 +95,24 @@
                                 type="text"
                                 name="countrycode"
                                 value="+971"
-                                maxlength="4"
+                               readonly
                                 class="w-4/12 border-b-2 border-[#577065] p-2 placeholder:text-[#577065] placeholder:font-bold placeholder:text-md focus:outline-none focus:border-[#405d53] placeholder:italic"
                             />
                          
                             <input
-                                type="number"
+                                type="text"
+                                inputmode="numeric"
                                 name="phone"
                                 placeholder="Phone"
+                                maxlength="9"
+                                oninput={() =>
+                                    (this.value = this.value.replace(
+                                        /[^0-9]/g,
+                                        "",
+                                    ))}
                                 class="w-8/12 border-b-2 border-[#577065] p-2 placeholder:text-[#577065] placeholder:font-bold placeholder:text-md focus:outline-none focus:border-[#405d53] placeholder:italic"
                                 bind:value={formData.phone}
-                            /> 
+                            />
                         </div>
                         {#if errors.phone}<p class="text-red-500 text-sm">
                            {errors.phone}

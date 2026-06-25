@@ -45,7 +45,7 @@
 
     <div class="max-w-2xl space-y-4">
       {#each items.banners.filter((item) => item.title === "About us content") as content}
-        <div class="text-secondary text-[35px] font-seasons">About us</div>
+        <div class="text-[#577065] text-[35px] font-seasons font-bold">About us</div>
         <div class="text-c5 text-lg font-cabinet-grotesk">
           {content.description}
         </div>
@@ -63,7 +63,7 @@
   <div class="grid md:grid-cols-1 lg:grid-cols-2 mx-auto max-w-7xl gap-20 px-10">
     <div class="max-w-2xl space-y-4">
       {#each items.banners.filter((item) => item.title === "Why choose us?") as content}
-        <div class="text-secondary text-[34px] font-seasons">
+        <div class="text-[#577065] text-[34px] font-seasons font-bold">
           {content.title}
         </div>
         <div class="text-c5 text-lg font-cabinet-grotesk">

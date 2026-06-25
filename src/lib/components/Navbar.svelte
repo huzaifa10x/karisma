@@ -59,6 +59,7 @@
   let mobileMenuOpen = $state(false);
   let mobileDepartmentsOpen = $state(false);
   let activeMobileSubmenu = $state<string | null>(null);
+  let deptTimeout;
 
   const navLinks = [
     { label: "ABOUT US", href: "/en/about" },
@@ -102,13 +103,20 @@
           class="text-[16px] tracking-[1px] font-semibold text-white hover:text-[#c9a45c]"
           >ABOUT US</a
         >
-        <div
-          class="relative"
-          role="menu"
-          tabindex="0"
-          onmouseenter={() => (departmentsOpen = true)}
-          onmouseleave={() => (departmentsOpen = false)}
-        >
+       <div
+  class="relative"
+  role="menu"
+  tabindex="0"
+  onmouseenter={() => {
+    clearTimeout(window.deptTimeout); // Cancel any pending close
+    departmentsOpen = true;
+  }}
+  onmouseleave={() => {
+    window.deptTimeout = setTimeout(() => {
+      departmentsOpen = false;
+    }, 3000); // 3-second delay
+  }}
+>
           <button
             class="flex items-center CabinetGrotesk text-[16px] tracking-[1px] gap-1 font-semibold pl-4 text-white hover:text-[#c9a45c]"
           >
@@ -217,7 +225,7 @@
         >
       </div>
 
-      <div class="flex flex-col gap-6 text-[#405d53] text-[16px] font-medium">
+      <div class="flex flex-col gap-6 text-[#577065] text-[16px] font-medium">
         <a href="/en/about" onclick={toggleMobileMenu}>About Us</a>
 
         <div>
@@ -246,7 +254,7 @@
                  
                   <button
                     onclick={() => toggleSubmenu(dept.title)}
-                    class="flex items-center gap-3 py-2 text-[#405d53]"
+                    class="flex items-center gap-3 py-2 text-[#577065]"
                   >
                     <a href={`/en/departments/${dept.link}`}>
                       {dept.title}
@@ -268,7 +276,7 @@
                         <a
                           href={`/en/departments/${dept.link}/${child.canonical_name}`}
                           onclick={toggleMobileMenu}
-                          class="py-2 text-md text-[#405d53]"
+                          class="py-2 text-md text-[#577065]"
                         >
                           {child.service_name}
                         </a>

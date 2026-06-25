@@ -27,23 +27,23 @@
 </script>
 
 <Navbar />
-<section class="bg-primary py-5">
-  <div class="mx-auto w-full lg:w-350 px-5 md:px-20 pt-20 lg:px-0 lg:pt-50">
+<section class="bg-primary py-3">
+  <div class="mx-auto w-full  px-5 lg:px-10 pt-20 lg:pt-40">
     <h1
-      class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px] font-seasons"
+      class="text-[#405d53] font-bold text-[22px]/[26px] lg:text-[26px]/[34px] font-seasons"
     >
       {service.sub_service_name}
     </h1>
 
     <div
-      class="text-c5 space-y-5 [&>b]:font-semibold text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px]"
+      class="text-c5 space-y-5 font-light [&_b]:font-semibold text-[16px]/[24px] lg:text-[18px]/[28px]"
     >
       {@html service.small_description}
     </div>
     <img
       src={"https://admin.karismamc.com/public/storage/" + service?.image}
       alt={service.sub_service_name}
-      class="w-full h-50 lg:h-150 object-cover my-5"
+      class="w-full h-50 lg:h-[70vh] object-cover my-5 px-5"
     />
 
     {#if service.section1_title}
@@ -53,37 +53,37 @@
         {service.section1_title}
       </h2>
       <div
-        class="text-c5 space-y-5 [&>b]:font-semibold text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px] mb-5"
+        class="text-c5 space-y-5 font-light [&_b]:font-semibold  text-[16px] lg:text-[18px]/[28px] mb-5"
       >
         {@html processHtml(service.section1_description)}
       </div>
     {/if}
 
-    <div class="flex flex-wrap gap-4 md:gap-0 my-10">
-      <div class="bg-[#c4a98863] w-full md:w-2/4 lg:w-2/4 p-5 rounded border border-[#ccc]">
+    <div class="flex flex-wrap gap-4 lg:gap-4 my-10">
+      <div class="bg-[#c4a98863] w-full lg:w-[48%] p-5 rounded border border-[#ccc]">
         {#if service.section2_title}
           <h2
-            class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px] font-seasons"
+            class="text-[#405d53] font-normal text-[22px] lg:text-[30px]/[39px]"
           >
             {service.section2_title}
           </h2>
           <div
-            class="text-c5 space-y-5 [&>b]:font-semibold text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px] mb-5"
+            class="text-c5 space-y-5 font-light [&_b]:font-semibold  text-[16px] lg:text-[18px]/[28px] mb-5"
           >
             {@html processHtml(service.section2_description)}
           </div>
         {/if}
       </div>
 
-      <div class="bg-[#c4a98863] w-full md:w-2/4 lg:w-2/4 p-5 rounded border border-[#ccc]">
+      <div class="bg-[#c4a98863] w-full lg:w-[48%] p-5 rounded border border-[#ccc]">
         {#if service.section3_title}
           <h2
-            class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px] font-seasons"
+            class="text-[#405d53] font-normal text-[22px] lg:text-[30px]/[39px]"
           >
             {service.section3_title}
           </h2>
           <div
-            class="text-c5 space-y-5 [&>b]:font-semibold text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px] mb-5"
+            class="text-c5 space-y-5 font-light [&_b]:font-semibold text-[16px] lg:text-[18px]/[28px] mb-5"
           >
             {@html processHtml(service.section3_description)}
           </div>
@@ -97,7 +97,7 @@
         {service.section4_title}
       </h2>
       <div
-        class="text-c5 space-y-5 [&>b]:font-semibold text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px]"
+        class="text-c5 space-y-5 font-light [&_b]:font-semibold  text-[16px] lg:text-[18px]/[28px]"
       >
         {@html processHtml(service.section4_description)}
       </div>
@@ -105,8 +105,8 @@
   </div>
 </section>
  {#if service.section5_title}
-<div class="bg-[#D1BB9F] p-5 md:px-20 lg:p-8 w-full flex justify-center">
-  <div class="w-350">
+<div class="bg-[#D1BB9F] px-5 py-5 lg:py-10 lg:px-10  w-full flex justify-center">
+  <div class="w-full">
    
       <h2
         class="text-[#405d53] font-bold text-[22px] lg:text-[26px]/[34px] font-seasons"
@@ -114,7 +114,7 @@
         {service.section5_title}
       </h2>
       <div
-        class="text-c5 space-y-5 [&>b]:font-semibold text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px]"
+        class="text-c5 space-y-5 font-light [&_b]:font-semibold  text-[16px] lg:text-[18px]/[28px]"
       >
         {@html processHtml(service.section5_description)}
       </div>

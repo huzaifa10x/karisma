@@ -62,13 +62,13 @@
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
       <div class="flex flex-col justify-center">
         <h2
-          class="text-[30px] leading-tight text-secondary font-seasons font-medium! lg:text-5xl"
+          class="text-[30px] leading-tight text-[#577065] font-seasons font-medium! lg:text-5xl"
         >
           Talk To One of Our Experts Today
         </h2>
 
         <div class="mt-10">
-          <h3 class="text-[22px] lg:text-3xl font-seasons text-secondary">Working Hours</h3>
+          <h3 class="text-[22px] lg:text-3xl font-seasons text-[#577065]">Working Hours</h3>
           <p class="mt-4 text-[16px] lg:text-lg text-c5">
             Sunday- Thursday 10:00 AM to 8:00 PM
           </p>
@@ -81,7 +81,7 @@
           ></div>
           <button
             onclick={() => appointmentModal.open()}
-            class="relative rounded-lg rounded-br-none border hover:bg-[#405D53] hover:text-white duration-500 border-secondary transition-colors bg-white px-10 py-5 text-md lg:text-sm font-bold lg:tracking-widest text-secondary active:translate-y-1 active:-translate-x-1"
+            class="relative rounded-lg rounded-br-none border hover:bg-[#405D53] hover:text-white duration-500 border-secondary transition-colors bg-white px-10 py-5 text-md lg:text-sm font-bold lg:tracking-widest text-[#577065] active:translate-y-1 active:-translate-x-1"
           >
             APPOINTMENT
           </button>
@@ -92,21 +92,21 @@
         class="rounded-3xl rounded-br-none bg-[#F4F7F8] p-8 shadow-sm md:p-10"
       >
         <div class="flex flex-wrap gap-5 md:gap-0 lg:gap-10">
-          <label class="flex cursor-pointer items-center w-full md:w-2/4 lg:w-auto gap-2 text-secondary">
+          <label class="flex cursor-pointer items-center w-full md:w-2/4 lg:w-auto gap-2 text-[#577065]">
             <input
               type="radio"
               bind:group={formType}
               value="Enquiry"
-              class="accent-second text-secondary h-4 w-4"
+              class="accent-second text-[#577065] h-4 w-4"
             />
             <span class="font-bold lg:font-medium">Enquiry</span>
           </label>
-          <label class="flex cursor-pointer items-center w-full md:w-2/4 lg:w-auto gap-2 text-secondary">
+          <label class="flex cursor-pointer items-center w-full md:w-2/4 lg:w-auto gap-2 text-[#577065]">
             <input
               type="radio"
               bind:group={formType}
               value="Feedback"
-              class="accent-second text-secondary h-4 w-4"
+              class="accent-second text-[#577065] h-4 w-4"
             />
             <span class="font-bold lg:font-medium">Feedback</span>
           </label>
@@ -114,11 +114,11 @@
 
         <form onsubmit={handleSubmit} class="mt-5 lg:mt-10 space-y-3" novalidate>
           <div class="relative">
-            <!-- <label class="block italic text-secondary">Name</label> -->
+            <!-- <label class="block italic text-[#577065]">Name</label> -->
             <input
               type="text"
               placeholder="Name"
-              class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
+              class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
             />
             {#if errors.name}<p class="text-red-500 text-sm mt-1">{errors.name}</p>{/if}
           </div>
@@ -128,7 +128,7 @@
               <input
                 type="email"
                 placeholder="Email"
-                class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
+                class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
               />
               {#if errors.email}<p class="text-red-500 text-sm mt-1">{errors.email}</p>{/if}
             </div>
@@ -138,7 +138,7 @@
                   type="text"
                   placeholder="+971"
                   disabled
-                  class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none"
+                  class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none"
                 />
                 {#if errors.countrycode}<p class="text-red-500 text-sm mt-1">{errors.countrycode}</p>{/if}
               </div>
@@ -146,7 +146,7 @@
                 <input
                   type="tel"
                   placeholder="Phone"
-                  class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
+                  class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
                 />
                 {#if errors.phone}<p class="text-red-500 text-sm mt-1">{errors.phone}</p>{/if}
               </div>
@@ -157,7 +157,7 @@
             <textarea
               rows="1"
               placeholder="Message"
-              class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
+              class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-4 outline-none focus:border-secondary focus:placeholder:not-italic"
             ></textarea>
             {#if errors.message}<p class="text-red-500 text-sm mt-1">{errors.message}</p>{/if}
           </div>
@@ -184,11 +184,11 @@
           </divs>
           <div>
             <h4
-              class="text-3xl text-black font-seasons group-hover:text-secondary"
+              class="text-3xl text-black font-seasons group-hover:text-[#577065]"
             >
               {item.title}
             </h4>
-            <p class="text-black group-hover:text-secondary">
+            <p class="text-black group-hover:text-[#577065]">
               {item.detail}
             </p>
           </div>

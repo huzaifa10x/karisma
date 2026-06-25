@@ -8,7 +8,8 @@
 </script>
 
 <section class="py-10 space-y-4 block lg:hidden md:hidden">
-  <div class="space-y-3 mx-auto max-w-7xl px-6"> <h2 class="text-[26px] font-bold text-[#405d53] font-seasons">Our Doctors</h2>
+  <div class="space-y-3 mx-auto max-w-7xl px-6">
+     <h2 class="text-[26px] font-bold text-[#577065] font-seasons">Our Doctors</h2>
       <p class="text-c5 text-[20px]">
             Meet our team of experts, dedicated to crafting smiles that define
             sophistication and excellence.
@@ -33,7 +34,7 @@
                     
                   />
                 </div>
-                <div class="text-secondary font-semibold">Read more</div>
+                <div class="text-[#577065] font-semibold">Read more</div>
               </div>
             </a>
           </div>
@@ -43,45 +44,42 @@
   </div>
 </section>
 
- <section class="py-10 space-y-4 hidden md:block lg:block">
-        <div class="space-y-3 mx-auto max-w-375 px-6 md:px-20 ">
-          <h2 class="text-[26px] font-bold text-[#405d53] font-seasons">
+ <section class="py-10 space-y-4 hidden lg:block">
+        <div class="space-y-3 mx-auto max-w-375 px-6 lg:px-0 ">
+          <h2 class="text-[26px] font-bold text-[#577065] font-seasons">
             Our Doctors
           </h2>
-          <p class="text-c5 text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px]">
+          <p class="text-c5 text-[16px]/[24px] lg:text-[18px]/[28px] font-light">
             Meet our team of experts, dedicated to crafting smiles that define
             sophistication and excellence.
           </p>
-          <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-fr h-full">
-            {#each docData as dept}
-              <a href={`/en/doctor/${dept?.canonical_name}`}>
-                <div
-                  class="bg-white group rounded-2xl p-9 space-y-5 rounded-br-none"
-                >
-                  <div class="text-[#577065] text-2xl font-medium capitalize">
-                    {dept?.doctor_name}
-                  </div>
-                  <div class="border-b w-full"></div>
-                  <div class="text-c5 text-md">{dept?.designation}</div>
-                  <div
-                    class="relative overflow-hidden rounded-2xl rounded-br-none"
-                  >
-                    <div
-                      class="w-full h-full scale-0 group-hover:scale-100 duration-500 bg-secondary-foreground/50 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                    ></div>
-                    
-                      <img
-                      class="w-full object-cover rounded-2xl rounded-br-none h-full"
-                      src={"https://admin.karismamc.com/public/storage/" +
-                        dept?.photo || "/images/image-placeholder.png"}
-                      alt=""
-                      
-                      />
-                  </div>
-                  <div class="text-secondary font-semibold">Read more</div>
-                </div>
-              </a>
-            {/each}
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  {#each docData as dept}
+    <a href={`/en/doctor/${dept?.canonical_name}`} class="flex">
+      <div class="bg-white group rounded-2xl p-9 space-y-5 rounded-br-none flex flex-col h-full w-full">
+        
+        <div class="text-[#577065] text-2xl font-medium capitalize">
+          {dept?.doctor_name}
+        </div>
+        
+        <div class="border-b w-full"></div>
+        
+        <div class="text-c5 text-md">{dept?.designation}</div>
+
+        <div class="relative overflow-hidden rounded-2xl rounded-br-none flex-grow">
+          <div class="w-full h-full scale-0 group-hover:scale-100 duration-500 bg-secondary-foreground/50 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"></div>
+          
+          <img
+            class="w-full h-full object-cover rounded-2xl rounded-br-none"
+            src={"https://admin.karismamc.com/public/storage/" + dept?.photo || "/images/image-placeholder.png"}
+            alt={dept?.doctor_name}
+          />
+        </div>
+
+        <div class="text-[#577065] font-semibold">Read more</div>
+      </div>
+    </a>
+  {/each}
+</div>
         </div>
       </section>

@@ -66,11 +66,11 @@
                 }}
                 alt=""
               />
-              <div class="text-secondary text-2xl capitalize">
+              <div class="text-[#405d53] text-[16px] lg:text-[20px]/[30px] font-semibold capitalize">
                 {doctor.name}
               </div>
               <div class="text-c5 text-lg">{doctor.designation}</div>
-              <div class="text-secondary font-semibold">
+              <div class="text-[#5c4033] text-[15px] lg:text-[18px]/[28px] font-semibold">
                 {doctor.department}
               </div>
             </div>

@@ -88,7 +88,7 @@
               bind:value={name}
               required
               placeholder="Name"
-              class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
+              class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
             />
           </div>
 
@@ -99,7 +99,7 @@
               bind:value={email}
               required
               placeholder="Email"
-              class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
+              class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
             />
           </div>
 
@@ -111,7 +111,7 @@
                 bind:value={age}
                 required
                 placeholder="age"
-                class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
+                class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
               />
             </div>
             <div class="flex flex-col col-span-2 lg:col-span-1">
@@ -121,7 +121,7 @@
                 maxlength="4"
                 bind:value={countryCode}
                 placeholder="Codes"
-                class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
+                class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
               />
             </div>
             <div class="flex flex-col col-span-10 lg:col-span-2">
@@ -131,7 +131,7 @@
                 bind:value={phone}
                 required
                 placeholder="Phone"
-                class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
+                class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
               />
             </div>
           </div>
@@ -142,7 +142,7 @@
                 id="gender"
                 bind:value={gender}
                 required
-                class="w-full border-b border-secondary text-secondary font-semibold bg-transparent py-2 outline-none focus:border-secondary"
+                class="w-full border-b border-secondary text-[#577065] font-semibold bg-transparent py-2 outline-none focus:border-secondary"
               >
                 <option value="" disabled>Select Gender</option>
 
@@ -158,7 +158,7 @@
                 bind:value={date}
                 required
                 placeholder="Name"
-                class="w-full border-b placeholder:text-secondary italic border-secondary bg-transparent py-2 outline-none focus:border-secondary"
+                class="w-full border-b placeholder:text-[#577065] italic border-secondary bg-transparent py-2 outline-none focus:border-secondary"
               />
             </div>
           </div>
@@ -169,7 +169,7 @@
               bind:value={department}
               required
               placeholder="Name"
-              class="w-full border-b text-secondary font-semibold italic border-secondary bg-transparent py-2 outline-none focus:border-secondary"
+              class="w-full border-b text-[#577065] font-semibold italic border-secondary bg-transparent py-2 outline-none focus:border-secondary"
             >
               <option value="" disabled>Select Department</option>
               <option value="Dental">Dental</option>
@@ -191,7 +191,7 @@
               bind:value={message}
               rows="2"
               placeholder="Message"
-              class="w-full border-b placeholder:text-secondary placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
+              class="w-full border-b placeholder:text-[#577065] placeholder:font-semibold placeholder:italic border-secondary bg-transparent py-2 outline-none focus:border-secondary focus:placeholder:not-italic"
             ></textarea>
           </div>
 

@@ -17,11 +17,11 @@
         />
       </div>
       <div class="space-y-2">
-        <div class="text-secondary text-center lg:text-left font-bold lg:font-normal text-[25px] lg:text-3xl">CEO Message</div>
+        <div class="text-[#577065] text-center lg:text-left font-bold lg:font-normal text-[25px] lg:text-3xl">CEO Message</div>
         <p class="text-c5 [&_p]:mt-2 text-[16px] md:text-[17px]/[1.8] lg:text-[20px]/[36px] lg:leading-7 leading-7 max-w-275 text-center lg:text-left">
           {@html data.items.data.ceo_message.ceoMessageContent}
         </p>
-        <div class="text-secondary font-bold text-2xl text-center lg:text-left">
+        <div class="text-[#577065] font-bold text-2xl text-center lg:text-left">
           {data.items.data.ceo_message.ceoName}
         </div>
         <div class="text-c5 text-center lg:text-left">

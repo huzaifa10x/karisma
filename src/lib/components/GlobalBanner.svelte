@@ -6,7 +6,7 @@
 
 <section
   style="background-image: url('{image}')"
-  class="bg-cover bg-right lg:bg-center h-80 lg:h-170 bg-no-repeat"
+  class="bg-cover bg-right lg:bg-center h-80  md:h-[70vh] lg:h-[70vh] bg-no-repeat"
 >
   <div class="w-full h-full bg-black/50">
     <div class="max-w-7xl px-4 mx-auto flex gap-4 flex-col justify-end h-full pb-10">

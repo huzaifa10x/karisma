@@ -54,10 +54,10 @@
       </div>
 
       <div class="space-y-4 md:col-span-2 [&_li]:w-auto! [&_div]:w-auto!">
-        <div class="text-3xl text-secondary">
+        <div class="text-3xl text-[#577065]">
           {data?.doctor?.name}
         </div>
-        <div class="text-secondary text-lg">{data?.doctor?.designation}</div>
+        <div class="text-[#577065] text-lg">{data?.doctor?.designation}</div>
         <div class="text-c5 font-medium text-[16px]/[24px]">
           {@html data?.doctor?.overview?.sections[0]?.items[0]}
         </div>
@@ -67,7 +67,7 @@
 
   <div class="mx-auto max-w-7xl px-6 mt-20 space-y-9">
     <div class="space-y-5">
-      <h4 class="text-[38px] font-normal font-seasons text-secondary">
+      <h4 class="text-[38px] font-normal font-seasons text-[#577065]">
         {data?.doctor?.workExperience?.title}
       </h4>
       <div class="text-c5 text-[18px] flex items-start gap-2">
@@ -90,7 +90,7 @@
     <div class="">
       <div class="grid md:grid-cols-2 space-y-5">
         <div class="space-y-5">
-          <h4 class="text-[38px] font-normal font-seasons text-secondary">
+          <h4 class="text-[38px] font-normal font-seasons text-[#577065]">
             {data?.doctor?.qualifications?.title}
           </h4>
           <div class="text-c5 text-[18px] flex items-start gap-2">
@@ -114,7 +114,7 @@
         </div>
 
         <div class="space-y-10">
-          <h4 class="text-[38px] font-normal font-seasons text-secondary">
+          <h4 class="text-[38px] font-normal font-seasons text-[#577065]">
             {data?.doctor?.workingShifts?.flipBack1}
           </h4>
           <div class="grid md:grid-cols-2 gap-5">
