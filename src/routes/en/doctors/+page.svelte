@@ -54,11 +54,13 @@
   <div class="mx-auto max-w-7xl px-6">
     <div class="grid grid-cols-3 gap-5">
       {#each data.doctorsPage.doctors.slice(1) as doctor}
-        <div class="md:basis-1/2 lg:basis-1/3">
+        <div class="md:basis-1/2 lg:basis-1/3  bg-[#D8C5AD] ">
           <a href={`/en/doctor/${doctor.canonical_name}`}>
             <div class="group space-y-">
+            <div class=" overflow-hidden h-123  rounded-2xl rounded-br-none">
+
               <img
-                class="w-full object-cover rounded-2xl rounded-br-none mb-5"
+                class="w-full object-cover rounded-2xl rounded-br-none mb-5 transition-transform duration-500 ease-in-out hover:scale-110"
                 src={doctor.image || "/images/image-placeholder.png"}
                 onerror={(e) => {
                   (e.currentTarget as HTMLImageElement).src =
@@ -66,7 +68,8 @@
                 }}
                 alt=""
               />
-              <div class="text-[#405d53] text-[16px] lg:text-[20px]/[30px] font-semibold capitalize">
+            </div>
+              <div class="text-[#405d53] text-[16px] lg:text-[20px]/[30px] font-semibold capitalize pt-3">
                 {doctor.name}
               </div>
               <div class="text-c5 text-lg">{doctor.designation}</div>
