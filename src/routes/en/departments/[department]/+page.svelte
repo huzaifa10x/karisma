@@ -108,7 +108,7 @@
             index % 2 === 0 ? "bg-primary" : "bg-[#c4a98863]"
           }`}
         >
-          <div class="lg:mx-auto lg:max-w-375 px-0 lg:px-2">
+          <div class="px-0 lg:px-2">
             <h2
               class="text-[22px] lg:text-[26px]/[34px] font-bold text-[#405d53] font-seasons mb-3"
             >
